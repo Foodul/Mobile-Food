@@ -177,6 +177,7 @@ class AppThemeLight extends AppTheme {
       tertiary: Color(0xFF2D0C57), //text / darkPurble
       onTertiaryContainer: Color(0xFF8F92A1), //text / textGrey
       onTertiary: Color(0xFF5E6375), //text / grey
+      surfaceVariant: Color(0xFFC5CEE0),
       brightness: Brightness.light,
     );
   }

@@ -44,7 +44,8 @@ class ProfileView extends StatelessWidget {
                               )
                             ],
                           ),
-                          Container(
+                          Padding(
+                            padding: context.horizontalPaddingMedium,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -74,6 +75,74 @@ class ProfileView extends StatelessWidget {
                                       color: context
                                           .colorScheme.onTertiaryContainer),
                                 ),
+                                SizedBox(height: context.dynamicWidth(.02)),
+                                Container(
+                                  // height: context.dynamicWidth(0.15),
+                                  padding: context.paddingNormal,
+                                  decoration: BoxDecoration(
+                                      color: context.colorScheme.surfaceVariant
+                                          .withOpacity(0.7),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Wrap(children: [
+                                        Text(
+                                          '125',
+                                          style: context.textTheme.bodyText1!
+                                              .copyWith(
+                                            color: context
+                                                .colorScheme.tertiaryContainer,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: context.dynamicWidth(0.01),
+                                        ),
+                                        Text(
+                                          'Takipçi',
+                                          style: context.textTheme.bodyText1!
+                                              .copyWith(
+                                            color:
+                                                context.colorScheme.onTertiary,
+                                          ),
+                                        ),
+                                      ]),
+                                      SizedBox(
+                                        height: context.dynamicWidth(0.075),
+                                        child: VerticalDivider(
+                                          color: context
+                                              .colorScheme.onTertiaryContainer,
+                                          thickness: 1,
+                                        ),
+                                      ),
+                                      Wrap(children: [
+                                        Text(
+                                          '150',
+                                          style: context.textTheme.bodyText1!
+                                              .copyWith(
+                                            color: context
+                                                .colorScheme.tertiaryContainer,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: context.dynamicWidth(0.01),
+                                        ),
+                                        Text(
+                                          'Takip',
+                                          style: context.textTheme.bodyText1!
+                                              .copyWith(
+                                            color:
+                                                context.colorScheme.onTertiary,
+                                          ),
+                                        ),
+                                      ]),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           )
