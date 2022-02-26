@@ -36,48 +36,7 @@ class NavigationRoute {
         return normalNavigate(const SplashView());
       case NavigationConstants.LOGIN:
         return normalNavigate(const LoginView());
-      // case NavigationConstants.TEST:
-      //   return normalNavigate(const TestView());
-      // case NavigationConstants.ON_BOARD:
-      //   return normalNavigate(const OnboardView());
-      // case NavigationConstants.LOGIN:
-      //   return normalNavigate(const LoginView());
-      // case NavigationConstants.SUGGESTION_DETAIL:
-      //   final id = args.arguments as String;
-      //   return normalNavigate(SuggestionDetailView(id: id));
-      // case NavigationConstants.HOME:
-      //   return normalNavigate(const HomeView());
-      // case NavigationConstants.BOTTOM_TAB:
-      //   return normalNavigate(const BottomTabView());
-      // case NavigationConstants.SUGGESTION_REGISTER:
-      //   return normalNavigate(const SuggestionRegisterView());
-      // case NavigationConstants.SIMILAR_SUGGESTIONS:
-      //   final model = args.arguments as SuggestCreateModel;
-      //   return normalNavigate(SimilarSuggestionsView(
-      //     suggestionControlModel: model,
-      //   ));
-      // case NavigationConstants.FORM_VIEW:
-      //   final id = args.arguments as String;
-      //   return normalNavigate(FormView(id: id));
-      // case NavigationConstants.ASSIGNMENT_USER:
-      //   final id = args.arguments as String;
-      //   return normalNavigate(AssignmentView(id: id));
-      // case NavigationConstants.PROFIL_EDIT:
-      //   return normalNavigate(ProfilEditView(
-      //     data: args.arguments,
-      //   ));
-      // case NavigationConstants.PROFIL:
-      //   return normalNavigate(const ProfileView());
-      // case NavigationConstants.REPORT:
-      //   return normalNavigate(const ReportView());
 
-      // case NavigationConstants.CHANGE_PASSWORD:
-      //   return normalNavigate(const ChangePasswordView());
-      // case NavigationConstants.SUGGESTION_CONTROL:
-      //   final model = args.arguments as SuggestionControl;
-      //   return normalNavigate(SuggestionControlView(
-      //     suggestionControlModel: model,
-      //   ));
       default:
         return MaterialPageRoute(
           builder: (context) => const NotFoundNavigationWidget(),
