@@ -36,6 +36,8 @@ class NavigationRoute {
         return normalNavigate(const SplashView());
       case NavigationConstants.LOGIN:
         return normalNavigate(const LoginView());
+      case NavigationConstants.LOGIN:
+        return normalNavigate(const LoginView());
       // case NavigationConstants.TEST:
       //   return normalNavigate(const TestView());
       // case NavigationConstants.ON_BOARD:

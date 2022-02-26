@@ -150,6 +150,7 @@ class AppThemeLight extends AppTheme {
       onTertiaryContainer: Color(0xFF8F92A1), //text / textGrey
       onTertiary: Color(0xFF5E6375), //text / grey
       brightness: Brightness.light,
+      
     );
   }
 }
