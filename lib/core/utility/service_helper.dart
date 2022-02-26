@@ -207,8 +207,9 @@ abstract class ServiceHelper {
   void somethingWentWrongPage() {
     // LocaleManager.instance.setStringValue(PreferencesKeys.TOKEN, '');
 
-    NavigationService.instance
-        .navigateToPageClear(path: NavigationConstants.WRONG);
+    //TODO: 404 ekranı gelecek
+    // NavigationService.instance
+    //     .navigateToPageClear(path: NavigationConstants.WRONG);
   }
 
   R? responseParser<T extends INetworkModel, R>(T model, dynamic data) {
