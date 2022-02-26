@@ -251,7 +251,8 @@ class HomeView extends StatelessWidget {
                                               horizontal: context.lowValue,
                                               vertical:
                                                   context.mediumValue / 1.7),
-                                          hintText: "Resevior Name",
+                                          hintText:
+                                              LocaleKeys.homeView_findFood.tr(),
                                           filled: true,
                                           fillColor: Colors.white,
                                           disabledBorder: OutlineInputBorder(
@@ -312,7 +313,18 @@ class HomeView extends StatelessWidget {
                                                       viewModel.tabs[index]
                                                           .toString(),
                                                       style: context
-                                                          .textTheme.subtitle2,
+                                                          .textTheme.subtitle2!
+                                                          .copyWith(
+                                                        color: index ==
+                                                                viewModel
+                                                                    .selectedIndex
+                                                            ? context
+                                                                .colorScheme
+                                                                .secondary
+                                                            : context
+                                                                .colorScheme
+                                                                .onTertiaryContainer,
+                                                      ),
                                                     ),
                                                     SizedBox(
                                                       height: context.height *
@@ -341,63 +353,106 @@ class HomeView extends StatelessWidget {
                               SizedBox(
                                 width: context.width,
                                 height: context.height * 0.35,
-                                child: ListView.builder(
-                                    itemCount: viewModel.feedData.length,
-                                    itemBuilder: (context, index) {
-                                      return viewModel.data
-                                          ? ListTile(
-                                              leading: Image.network(
-                                                viewModel.feedData[index]
-                                                        ['photo']
-                                                    .toString(),
-                                                fit: BoxFit.cover,
-                                                height: 50,
-                                                width: 50,
+                                child: viewModel.data
+                                    ? ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        itemCount: viewModel.feedData.length,
+                                        itemBuilder: (context, index) {
+                                          return ListTile(
+                                            leading: Container(
+                                              width: 50,
+                                              height: 50,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(7),
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                      viewModel.feedData[index]
+                                                              ['photo']
+                                                          .toString(),
+                                                    ),
+                                                    fit: BoxFit.cover),
                                               ),
-                                              title: Text(
-                                                '${viewModel.feedData[index]['name']} Adet ${viewModel.feedData[index]['kcal']}',
-                                                style: context
-                                                    .textTheme.subtitle2!
-                                                    .copyWith(
+                                            ),
+                                            title: Text(
+                                              '${viewModel.feedData[index]['name']} Adet ${viewModel.feedData[index]['kcal']}',
+                                              style: context
+                                                  .textTheme.subtitle2!
+                                                  .copyWith(
+                                                      color: context.colorScheme
+                                                          .tertiaryContainer,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                            ),
+                                            subtitle: Text(
+                                              viewModel.feedData[index]['time']
+                                                  .toString(),
+                                            ),
+                                            trailing: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                SizedBox(
+                                                  width: context.width * 0.15,
+                                                  child: Row(
+                                                    children: [
+                                                      SvgPicture.asset(
+                                                        SVGImageConstants
+                                                            .instance.flash,
                                                         color: context
                                                             .colorScheme
-                                                            .tertiaryContainer,
-                                                        fontWeight:
-                                                            FontWeight.w600),
-                                              ),
-                                              subtitle: Text(
-                                                viewModel.feedData[index]
-                                                        ['time']
-                                                    .toString(),
-                                              ),
-                                              trailing: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(
-                                                    width: context.width * 0.15,
-                                                    child: Row(
-                                                      children: [
-                                                        SvgPicture.asset(
-                                                          SVGImageConstants
-                                                              .instance.flash,
-                                                          color: context
-                                                              .colorScheme
-                                                              .onTertiaryContainer,
-                                                        ),
-                                                        Text(
-                                                            '${viewModel.feedData[index]['kcal']}')
-                                                      ],
-                                                    ),
+                                                            .onTertiaryContainer,
+                                                      ),
+                                                      Text(
+                                                          '${viewModel.feedData[index]['kcal']}')
+                                                    ],
                                                   ),
-                                                  Text(viewModel.feedData[index]
-                                                          ['co2']
-                                                      .toString()),
-                                                ],
+                                                ),
+                                                Text(viewModel.feedData[index]
+                                                        ['co2']
+                                                    .toString()),
+                                              ],
+                                            ),
+                                          );
+                                        })
+                                    : Container(
+                                        child: Column(
+                                          children: [
+                                            SvgPicture.asset(SVGImageConstants
+                                                .instance.salad),
+                                            Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: context.lowValue),
+                                              child: Text(
+                                                LocaleKeys
+                                                    .homeView_noRegisteredFoodFound
+                                                    .tr(),
+                                                style:
+                                                    context.textTheme.subtitle2,
                                               ),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text(LocaleKeys
+                                                  .homeView_createNow
+                                                  .tr()),
+                                              style: ButtonStyle(
+                                                  padding:
+                                                      MaterialStateProperty.all(
+                                                          EdgeInsets.all(
+                                                              context.lowValue *
+                                                                  1.4)),
+                                                  elevation:
+                                                      MaterialStateProperty.all(
+                                                          1),
+                                                  backgroundColor:
+                                                      MaterialStateProperty.all(
+                                                          Color(0x00C5CEE0))),
                                             )
-                                          : Container();
-                                    }),
+                                            // ElevatedButton.styleFrom()
+                                          ],
+                                        ),
+                                      ),
                               )
                             ],
                           ),

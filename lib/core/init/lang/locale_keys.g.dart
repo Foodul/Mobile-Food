@@ -11,6 +11,7 @@ abstract class  LocaleKeys {
   static const homeView_spendValue = 'homeView.spendValue';
   static const homeView_spendingHistory = 'homeView.spendingHistory';
   static const homeView_createNow = 'homeView.createNow';
+  static const homeView_findFood = 'homeView.findFood';
   static const homeView_noRegisteredFoodFound = 'homeView.noRegisteredFoodFound';
   static const homeView_today = 'homeView.today';
   static const homeView_thisWeek = 'homeView.thisWeek';
