@@ -27,7 +27,7 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
   final feedData = [
     {
       'photo':
-          'https://st2.depositphotos.com/7036298/10694/i/950/depositphotos_106948346-stock-photo-ripe-red-apple-with-green.jpg',
+          'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
       'name': 'Elma',
       'kcal': '200',
       'quantity ': '2',
@@ -37,7 +37,7 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
     },
     {
       'photo':
-          'https://media.istockphoto.com/photos/banana-picture-id1184345169?k=20&m=1184345169&s=612x612&w=0&h=EKwCw7Zx20N3l8G_rQI6KcitWTQ5ahkgmEBr2QA1FMk=',
+          'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2439&q=80',
       'name': 'Muz',
       'kcal': '200',
       'quantity ': '4',
@@ -47,7 +47,7 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
     },
     {
       'photo':
-          'https://media.istockphoto.com/photos/banana-picture-id1184345169?k=20&m=1184345169&s=612x612&w=0&h=EKwCw7Zx20N3l8G_rQI6KcitWTQ5ahkgmEBr2QA1FMk=',
+          'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2439&q=80',
       'name': 'Muz',
       'quantity ': '4',
       'kcal': '200',
@@ -57,7 +57,7 @@ abstract class _HomeViewModelBase with Store, BaseViewModel {
     },
     {
       'photo':
-          'https://st2.depositphotos.com/7036298/10694/i/950/depositphotos_106948346-stock-photo-ripe-red-apple-with-green.jpg',
+          'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
       'name': 'Elma',
       'quantity ': '2',
       'kcal': '200',
