@@ -22,7 +22,7 @@ class AlertCard extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: context.normalValue,
+          horizontal: context.lowValue,
           vertical: context.mediumValue,
         ),
         child: Row(

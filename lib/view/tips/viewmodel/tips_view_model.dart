@@ -16,10 +16,25 @@ abstract class _TipsViewModelBase with Store, BaseViewModel {
   @observable
   List<TipsModel> data = [
     TipsModel(
-        tipsimg: ImageConstants.instance.waste,
-        title: 'You Bought It, You Eat It – Don’t Waste Food',
-        info:
-            'More than 4.5 million tons of food is wasted every year in the U.S. – about 25%',
-        onTab: () {}),
+      tipsImage: ImageConstants.instance.waste,
+      title: 'You Bought It, You Eat It – Don’t Waste Food',
+      text:
+          'More than 4.5 million tons of food is wasted every year in the U.S. – about 25%',
+      // onTab: () {}
+    ),
+    TipsModel(
+      tipsImage: ImageConstants.instance.waste,
+      title: 'You Bought It, You Eat It – Don’t Waste Food',
+      text:
+          'More than 4.5 million tons of food is wasted every year in the U.S. – about 25%',
+      // onTab: () {}
+    ),
+    TipsModel(
+      tipsImage: ImageConstants.instance.waste,
+      title: 'You Bought It, You Eat It – Don’t Waste Food',
+      text:
+          'More than 4.5 million tons of food is wasted every year in the U.S. – about 25%',
+      // onTab: () {}
+    ),
   ];
 }

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Mobile-Food",
+			"path": "../../../.."
+		},
+		{
+			"name": "scripts",
+			"path": "../../../../../../Desktop/workshop/scripts"
+		}
+	],
+	"settings": {}
+}

@@ -10,6 +10,7 @@ class SVGImageConstants {
   final logo = 'logo'.toSVG;
   final amblemLogo = 'amblemLogo'.toSVG;
   final lightbulb = 'lightbulb'.toSVG;
+  final arrowRight = 'arrow-right'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {

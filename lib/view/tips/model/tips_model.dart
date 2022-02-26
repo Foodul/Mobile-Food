@@ -4,12 +4,15 @@ part 'tips_model.g.dart';
 
 @JsonSerializable()
 class TipsModel extends INetworkModel<TipsModel> {
-  String? tipsimg;
+  String? tipsImage;
   String? title;
-  String? info;
-  Function()? onTab;
+  String? text;
 
-  TipsModel({this.tipsimg, this.title, this.info, this.onTab});
+  TipsModel({
+    this.tipsImage,
+    this.title,
+    this.text,
+  });
 
   @override
   TipsModel fromJson(Map<String, dynamic> json) {
