@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodul/core/constants/image/image_constants.dart';
+import 'package:foodul/core/constants/image/svg_constants.dart';
 import 'package:kartal/kartal.dart';
 
 class SplashView extends StatelessWidget {
@@ -7,36 +10,19 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Text(
-              'h1',
-              style: context.textTheme.headline1,
-            ),
-            Text(
-              'h2',
-              style: context.textTheme.headline2,
-            ),
-            Text(
-              'h3',
-              style: context.textTheme.headline3,
-            ),
-            Text(
-              'h4',
-              style: context.textTheme.headline4,
-            ),
-            Text(
-              'body',
-              style: context.textTheme.bodyText1,
-            ),
-            Text(
-              'body2',
-              style: context.textTheme.bodyText2,
-            ),
-          ],
-        ),
+        body: Container(
+      width: double.infinity,
+      height: context.height,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage(ImageConstants.instance.splashBG),
+            fit: BoxFit.cover),
       ),
-    );
+      child: Center(
+          child: SvgPicture.asset(
+        SVGImageConstants.instance.logo,
+        width: context.dynamicWidth(0.5),
+      )),
+    ));
   }
 }
