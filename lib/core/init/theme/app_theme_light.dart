@@ -74,13 +74,13 @@ class AppThemeLight extends AppTheme {
   ElevatedButtonThemeData get elevatedButtonTheme {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        onPrimary: _appColorScheme.tertiary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        elevation: 3,
-        primary: _appColorScheme.primary,
-      ),
+          onPrimary: _appColorScheme.tertiary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          elevation: 3,
+          primary: _appColorScheme.primary,
+          textStyle: textTheme.button),
     );
   }
 

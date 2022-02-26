@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodul/core/base/view/base_widget.dart';
 import 'package:foodul/core/constants/image/svg_constants.dart';
@@ -26,7 +27,13 @@ class LoginView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            header_area(context),
+            AnimatedContainer(
+                duration: const Duration(milliseconds: 800),
+                child: context.isKeyBoardOpen
+                    ? SizedBox(
+                        height: context.dynamicHeight(.05),
+                      )
+                    : header_area(context)),
             Expanded(
               flex: 2,
               child: Column(
@@ -39,20 +46,43 @@ class LoginView extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
                       elevation: 15,
-                      child: const TextField(),
+                      child: TextField(
+                        controller: viewModel.emailController,
+                        decoration: const InputDecoration(
+                          hintText: 'e-mail',
+                        ),
+                      ),
                     ),
                   ),
                   Padding(
                     padding: context.verticalPaddingLow,
                     child: Material(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       elevation: 15,
                       shadowColor: context.colorScheme.onTertiaryContainer
                           .withOpacity(0.45),
-                      child: const TextField(
-                        obscureText: true,
-                      ),
+                      child: Observer(builder: (_) {
+                        return TextField(
+                          controller: viewModel.passwordController,
+                          decoration: InputDecoration(
+                            hintText: 'password',
+                            suffixIcon: IconButton(
+                              padding: const EdgeInsets.all(0),
+                              onPressed: () {
+                                viewModel.changePasswordLocked();
+                              },
+                              icon: Icon(
+                                viewModel.isPasswordLocked
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                            ),
+                          ),
+                          obscureText: viewModel.isPasswordLocked,
+                        );
+                      }),
                     ),
                   ),
                   Padding(
@@ -61,7 +91,7 @@ class LoginView extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: Text(
                           'Forgot Password?',
-                          style: context.textTheme.caption!.copyWith(
+                          style: context.textTheme.button!.copyWith(
                               color: context.colorScheme.tertiaryContainer),
                         ),
                       )),
@@ -75,16 +105,13 @@ class LoginView extends StatelessWidget {
                     width: double.infinity,
                     height: context.dynamicHeight(0.075),
                     child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Giriş Yap'),
+                      onPressed: () {
+                        viewModel.submit();
+                      },
+                      child: Text('Login'),
                     ),
                   ),
                   const Spacer(),
-                  // Text(
-                  //   'Don’t have an account? Sign up',
-                  //   style: context.textTheme.bodyText1!.copyWith(
-                  //       color: context.colorScheme.onTertiaryContainer),
-                  // ),
                   RichText(
                     text: TextSpan(
                       text: 'Don’t have an account?',
