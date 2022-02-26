@@ -21,11 +21,34 @@ class AppThemeLight extends AppTheme {
         textButtonTheme: textButtonTheme,
         elevatedButtonTheme: elevatedButtonTheme,
         outlinedButtonTheme: outlinedButtonThemeData,
-        inputDecorationTheme: const InputDecorationTheme(
-          enabledBorder: UnderlineInputBorder(borderSide: BorderSide()),
-          disabledBorder: UnderlineInputBorder(),
-          focusedBorder: UnderlineInputBorder(),
-          contentPadding: EdgeInsets.all(0),
+        inputDecorationTheme: InputDecorationTheme(
+          // filled:  true,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+          disabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(15),
+            ),
+            borderSide: BorderSide(color: _appColorScheme.primary),
+          ),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         ),
         appBarTheme: AppBarTheme(
             // titleSpacing: 0,
@@ -51,9 +74,13 @@ class AppThemeLight extends AppTheme {
   ElevatedButtonThemeData get elevatedButtonTheme {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          elevation: 3,
-          primary: _appColorScheme.primary,
-          textStyle: textTheme.button),
+        onPrimary: _appColorScheme.tertiary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        elevation: 3,
+        primary: _appColorScheme.primary,
+      ),
     );
   }
 
