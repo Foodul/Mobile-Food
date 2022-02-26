@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:foodul/view/home/view/home_view.dart';
@@ -14,7 +15,7 @@ import 'core/init/notifier/provider_list.dart';
 import 'core/init/notifier/theme_notifer.dart';
 
 Future<void> main() async {
-  // await _init();
+  await _init();
   runApp(MultiProvider(
     providers: [...ApplicationProvider.instance.dependItems],
     child: EasyLocalization(
@@ -26,11 +27,11 @@ Future<void> main() async {
   ));
 }
 
-// Future<void> _init() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await EasyLocalization.ensureInitialized();
-//   await Firebase.initializeApp();
-// }
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp();
+}
 
 class MyApp extends StatelessWidget {
   @override

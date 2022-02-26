@@ -74,13 +74,6 @@ class NavigationRoute {
       // case NavigationConstants.REPORT:
       //   return normalNavigate(const ReportView());
 
-      // case NavigationConstants.CHANGE_PASSWORD:
-      //   return normalNavigate(const ChangePasswordView());
-      // case NavigationConstants.SUGGESTION_CONTROL:
-      //   final model = args.arguments as SuggestionControl;
-      //   return normalNavigate(SuggestionControlView(
-      //     suggestionControlModel: model,
-      //   ));
       default:
         return MaterialPageRoute(
           builder: (context) => const NotFoundNavigationWidget(),
