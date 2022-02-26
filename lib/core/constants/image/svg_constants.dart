@@ -9,6 +9,8 @@ class SVGImageConstants {
   /// final example = 'example'.toSVG;
   final logo = 'logo'.toSVG;
   final amblemLogo = 'amblemLogo'.toSVG;
+  final trending_down = 'trending-down'.toSVG;
+  final flash = 'flash'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {

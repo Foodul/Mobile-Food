@@ -49,6 +49,8 @@ dependencies:
   kartal: ^2.1.0
   mobx: ^2.0.4
   mobx_codegen: ^2.0.3
+  syncfusion_flutter_charts:  ^19.4.38
+  syncfusion_flutter_gauges: ^19.4.38
   open_file: ^3.2.1
   pedantic: ^1.11.1
   provider: ^6.0.0
