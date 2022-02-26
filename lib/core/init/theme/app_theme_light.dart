@@ -54,7 +54,8 @@ class AppThemeLight extends AppTheme {
             // titleSpacing: 0,
             centerTitle: false,
             color: _appColorScheme.surface,
-            titleTextStyle: textTheme.headline5
+            titleTextStyle: textTheme.headline5!
+                .copyWith(color: _appColorScheme.tertiaryContainer)
             // elevation: 0,
             ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
