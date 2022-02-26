@@ -17,17 +17,6 @@ class ProfileView extends StatelessWidget {
         },
         onPageBuilder: (BuildContext context, ProfilViewModel viewModel) =>
             Scaffold(
-              appBar: AppBar(
-                elevation: 0,
-                title: Text('Profil'),
-                actions: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.more_vert),
-                    color: context.colorScheme.tertiaryContainer,
-                  )
-                ],
-              ),
               body: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -37,9 +26,59 @@ class ProfileView extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(ImageConstants.instance.banana),
+                          alignment: Alignment.topRight,
                         ),
                       ),
-                      child: Text('fdsf'),
+                      child: Column(
+                        children: [
+                          AppBar(
+                            toolbarHeight: AppBar().preferredSize.height,
+                            elevation: 0,
+                            backgroundColor: Colors.transparent,
+                            title: const Text('Profil'),
+                            actions: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.more_vert),
+                                color: context.colorScheme.tertiaryContainer,
+                              )
+                            ],
+                          ),
+                          Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CircleAvatar(
+                                  radius: context.width * .18,
+                                  backgroundImage: AssetImage(
+                                    ImageConstants.instance.profil,
+                                  ),
+                                ),
+                                SizedBox(height: context.dynamicWidth(.025)),
+                                Text(
+                                  'Betül Üsküdar',
+                                  style: context.textTheme.headline5!.copyWith(
+                                      color: context
+                                          .colorScheme.tertiaryContainer),
+                                ),
+                                SizedBox(height: context.dynamicWidth(.01)),
+                                Text(
+                                  '@uskusku',
+                                  style: context.textTheme.bodyText1!
+                                      .copyWith(fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: context.dynamicWidth(.01)),
+                                Text(
+                                  'Kilo: 60 Boy: 170 VKE: 13.7',
+                                  style: context.textTheme.bodyText1!.copyWith(
+                                      color: context
+                                          .colorScheme.onTertiaryContainer),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
