@@ -31,12 +31,12 @@ dependencies:
   auto_size_text: ^3.0.0
   build_runner: ^2.1.2
   cached_network_image: ^3.1.0
+  cloud_firestore: ^3.1.10
   cupertino_icons: ^1.0.2
   easy_localization: ^3.0.0
   file_picker: ^4.3.2
-  # firebase_analytics: ^9.1.0
-  firebase_core: ^1.12.0
-  # firebase_crashlytics: ^2.5.1
+  firebase_auth: ^3.3.9
+  firebase_core: ^1.13.1
   firebase_messaging: ^11.2.6
   fl_chart: ^0.41.0
   flutter:
@@ -49,6 +49,8 @@ dependencies:
   kartal: ^2.1.0
   mobx: ^2.0.4
   mobx_codegen: ^2.0.3
+  syncfusion_flutter_charts:  ^19.4.38
+  syncfusion_flutter_gauges: ^19.4.38
   open_file: ^3.2.1
   pedantic: ^1.11.1
   provider: ^6.0.0
@@ -61,9 +63,9 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-   android: "launcher_icon"
-   ios: true
-   image_path: "assets/image/app_icon.png"
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/image/app_icon.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.
@@ -87,11 +89,60 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Mulish
+    - family: SfPro
       fonts:
-        - asset: assets/fonts/Mulish-Regular.ttf
-        - asset: assets/fonts/Mulish-Medium.ttf
-
+        - asset: assets/fonts/SF-Pro-Display-Black.otf
+        - asset: assets/fonts/SF-Pro-Display-BlackItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Bold.otf
+          weight: 700
+        - asset: assets/fonts/SF-Pro-Display-BoldItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Heavy.otf
+        - asset: assets/fonts/SF-Pro-Display-HeavyItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Light.otf
+          weight: 100
+        - asset: assets/fonts/SF-Pro-Display-LightItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Medium.otf
+          weight: 400
+        - asset: assets/fonts/SF-Pro-Display-MediumItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+          weight: 500
+        - asset: assets/fonts/SF-Pro-Display-RegularItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/SF-Pro-Display-SemiboldItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Thin.otf
+        - asset: assets/fonts/SF-Pro-Display-ThinItalic.otf
+        - asset: assets/fonts/SF-Pro-Display-Ultralight.otf
+        - asset: assets/fonts/SF-Pro-Display-UltralightItalic.otf
+        - asset: assets/fonts/SF-Pro-Italic.ttf
+        - asset: assets/fonts/SF-Pro-Rounded-Black.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Bold.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Heavy.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Light.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Medium.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Regular.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Semibold.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Thin.otf
+        - asset: assets/fonts/SF-Pro-Rounded-Ultralight.otf
+        - asset: assets/fonts/SF-Pro-Text-Black.otf
+        - asset: assets/fonts/SF-Pro-Text-BlackItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Bold.otf
+        - asset: assets/fonts/SF-Pro-Text-BoldItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Heavy.otf
+        - asset: assets/fonts/SF-Pro-Text-HeavyItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Light.otf
+        - asset: assets/fonts/SF-Pro-Text-LightItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Medium.otf
+        - asset: assets/fonts/SF-Pro-Text-MediumItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Regular.otf
+        - asset: assets/fonts/SF-Pro-Text-RegularItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Semibold.otf
+        - asset: assets/fonts/SF-Pro-Text-SemiboldItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Thin.otf
+        - asset: assets/fonts/SF-Pro-Text-ThinItalic.otf
+        - asset: assets/fonts/SF-Pro-Text-Ultralight.otf
+        - asset: assets/fonts/SF-Pro-Text-UltralightItalic.otf
+        - asset: assets/fonts/SF-Pro.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

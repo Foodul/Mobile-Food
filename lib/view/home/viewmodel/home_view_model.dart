@@ -1,189 +1,77 @@
-// import 'package:easy_localization/src/public_ext.dart';
-// import 'package:flutter/material.dart';
-// import 'package:kartal/kartal.dart';
-// import 'package:mobx/mobx.dart';
-// import 'package:provider/src/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:foodul/core/base/viewmodel/base_view_model.dart';
+import 'package:foodul/core/init/lang/locale_keys.g.dart';
+import 'package:mobx/mobx.dart';
+part 'home_view_model.g.dart';
 
-// import '../../../core/base/viewmodel/base_view_model.dart';
-// import '../../../core/constants/image/svg_constants.dart';
-// import '../../../core/init/lang/locale_keys.g.dart';
-// import '../../../core/init/notifier/init_notifier.dart';
-// import '../../_product/cards/statu/statu_model.dart';
-// import '../../login/model/init_model.dart';
-// import '../model/home_model.dart';
-// import '../service/home_service.dart';
-// import '../service/i_home_service.dart';
+class HomeViewModel = _HomeViewModelBase with _$HomeViewModel;
 
-// part 'home_view_model.g.dart';
+abstract class _HomeViewModelBase with Store, BaseViewModel {
+  void setContext(BuildContext context) => this.context = context;
 
-// class HomeViewModel = _HomeViewModelBase with _$HomeViewModel;
+  TextEditingController? searchController;
+  TabController? tabController;
 
-// abstract class _HomeViewModelBase with Store, BaseViewModel {
-//   @override
-//   void setContext(BuildContext context) => this.context = context;
+  @observable
+  int selectedIndex = 0;
 
-//   late IHomeService homeService;
+  @observable
+  bool data = true;
 
-//   List<StatuModel> statuIcons = [];
+  @action
+  bool getSelected(int value) {
+    return selectedIndex == value;
+  }
 
-//   late String suggestionCount;
+  final feedData = [
+    {
+      'photo':
+          'https://st2.depositphotos.com/7036298/10694/i/950/depositphotos_106948346-stock-photo-ripe-red-apple-with-green.jpg',
+      'name': 'Elma',
+      'kcal': '200',
+      'quantity ': '2',
+      'co2': '-100 CO2',
+      'time': '2021-05-06T10:37:30.250Z',
+      'text': 'Bugün NSIstanbul etkinliğine gelen var mı ?'
+    },
+    {
+      'photo':
+          'https://media.istockphoto.com/photos/banana-picture-id1184345169?k=20&m=1184345169&s=612x612&w=0&h=EKwCw7Zx20N3l8G_rQI6KcitWTQ5ahkgmEBr2QA1FMk=',
+      'name': 'Muz',
+      'kcal': '200',
+      'quantity ': '4',
+      'co2': '-100 CO2',
+      'time': '2021-05-06T10:37:30.250Z',
+      'text': 'Bugün NSIstanbul etkinliğine gelen var mı ?'
+    },
+    {
+      'photo':
+          'https://media.istockphoto.com/photos/banana-picture-id1184345169?k=20&m=1184345169&s=612x612&w=0&h=EKwCw7Zx20N3l8G_rQI6KcitWTQ5ahkgmEBr2QA1FMk=',
+      'name': 'Muz',
+      'quantity ': '4',
+      'kcal': '200',
+      'co2': '-100 CO2',
+      'time': '2021-05-06T10:37:30.250Z',
+      'text': 'Bugün NSIstanbul etkinliğine gelen var mı ?'
+    },
+    {
+      'photo':
+          'https://st2.depositphotos.com/7036298/10694/i/950/depositphotos_106948346-stock-photo-ripe-red-apple-with-green.jpg',
+      'name': 'Elma',
+      'quantity ': '2',
+      'kcal': '200',
+      'co2': '-100 CO2',
+      'time': '2021-05-06T10:37:30.250Z',
+      'text': 'Bugün NSIstanbul etkinliğine gelen var mı ?'
+    },
+  ];
 
-//   @observable
-//   HomeModel homeResult = HomeModel();
+  List<String> tabs = [
+    LocaleKeys.homeView_today.tr(),
+    LocaleKeys.homeView_thisWeek.tr(),
+    LocaleKeys.seeAll.tr(),
+  ];
 
-//   @observable
-//   ObservableList<ObservableList<int>> suggestionsCount = ObservableList.of([
-//     ObservableList.of([]),
-//     ObservableList.of([]),
-//     ObservableList.of([]),
-//   ]);
-
-//   @observable
-//   ActiveUser activeUser = ActiveUser();
-
-//   @override
-//   void init() async {
-//     homeService = HomeService(vexanaManager.networkManager);
-//     suggestionCount = LocaleKeys.homeView_suggestionCount.tr();
-//     await fetchHome();
-//     statuIcons = [
-//       StatuModel(
-//         SVGImageConstants.instance.bulb,
-//         context!.colorScheme.secondary,
-//         LocaleKeys.homeView_statuDescs_newSuggestion.tr(),
-//         2,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.multiply,
-//         context!.colorScheme.error,
-//         LocaleKeys.homeView_statuDescs_rejected.tr(),
-//         0,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.clipboard,
-//         context!.colorScheme.secondary,
-//         LocaleKeys.homeView_statuDescs_waitsControl.tr(),
-//         4,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.network,
-//         context!.colorScheme.secondary,
-//         LocaleKeys.homeView_statuDescs_assigned.tr(),
-//         3,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.edit,
-//         context!.colorScheme.secondary,
-//         LocaleKeys.homeView_statuDescs_inProgress.tr(),
-//         4,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.clock,
-//         context!.colorScheme.error,
-//         LocaleKeys.homeView_statuDescs_overdue.tr(),
-//         6,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.check,
-//         context!.colorScheme.secondary,
-//         LocaleKeys.homeView_statuDescs_inRevision.tr(),
-//         7,
-//       ),
-//       StatuModel(
-//         SVGImageConstants.instance.all_done,
-//         context!.colorScheme.onBackground,
-//         LocaleKeys.homeView_statuDescs_completed.tr(),
-//         8,
-//       ),
-//     ];
-//     for (var i = 0; i < 3; i++) {
-//       for (var j = 0; j < statuIcons.length; j++) {
-//         suggestionsCount[i].add(getTotalAccordingToTab(j, i));
-//       }
-//     }
-//     activeUser = context!.read<InitNotifier>().activeUser;
-//   }
-
-//   @observable
-//   bool isLoading = false;
-
-//   @action
-//   void isLoadingChange() {
-//     isLoading = !isLoading;
-//   }
-
-//   @observable
-//   int selectedTab = 0;
-
-//   @action
-//   void changeSelectedTab(int index) {
-//     selectedTab = index;
-//   }
-
-//   @observable
-//   double draggableRatio = 0.0;
-
-//   @action
-//   void changeRatio(double value) {
-//     final padding = MediaQuery.of(context!).padding;
-//     draggableRatio = (context!.height - value) /
-//         (context!.height - padding.top - padding.bottom);
-//   }
-
-//   @observable
-//   double draggableHeightRatio = 0.0;
-
-//   @observable
-//   bool isTop = false;
-
-//   @action
-//   int getTotal(int statu, List<Statics>? list) {
-//     if (list != null) {
-//       Statics? found = list.firstWhere((statics) => statics.iId == statu,
-//           orElse: () => Statics());
-//       return found.getTotal ?? 0;
-//     } else {
-//       return 0;
-//     }
-//   }
-
-//   @action
-//   int getTotalAccordingToTab(int index, int tab) {
-//     int total = 0;
-//     if (tab == 0) {
-//       total = getTotal(
-//         statuIcons[index].statu,
-//         homeResult.staticsOfMe,
-//       );
-//     } else if (tab == 1) {
-//       total = getTotal(
-//         statuIcons[index].statu,
-//         homeResult.staticsOfWorkflow,
-//       );
-//     } else if (tab == 2) {
-//       total = getTotal(
-//         statuIcons[index].statu,
-//         homeResult.staticsOfSolution,
-//       );
-//     }
-//     return total;
-//   }
-
-//   @action
-//   Future<void> fetchHome() async {
-//     isLoadingChange();
-//     final response = await homeService.fetchInitMobile();
-//     if (response!.type == true) {
-//       homeResult = response.data;
-//       ActiveUser activeUser = context!.read<InitNotifier>().getActiveUser;
-//       suggestionCount = suggestionCount.replaceAll(
-//           '@count', activeUser.approvedSuggestionsCount.toString());
-//       suggestionCount =
-//           suggestionCount.replaceAll('@point', activeUser.userPoint.toString());
-//     } else {
-//       showMessage(response);
-//     }
-
-//     isLoadingChange();
-//   }
-// }
+  void init() {}
+}
