@@ -72,52 +72,57 @@ class AppThemeLight extends AppTheme {
     return ThemeData.light().textTheme.copyWith(
           // ignore: prefer_const_constructors
           headline1: TextStyle(
-            fontSize: 28,
+            fontSize: 34,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.tertiary,
           ),
           headline2: TextStyle(
-            fontSize: 24,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.tertiary,
           ),
           headline3: TextStyle(
-            fontSize: 20,
+            fontSize: 25,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           headline4: TextStyle(
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           headline5: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           headline6: TextStyle(
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           bodyText1: TextStyle(
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.w500,
-            color: _appColorScheme.background,
+            color: _appColorScheme.onTertiaryContainer,
+          ),
+          bodyText2: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           subtitle2: TextStyle(
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.w500,
-            color: _appColorScheme.background,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           caption: TextStyle(
-            fontSize: 12,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: _appColorScheme.primary,
+            color: _appColorScheme.onTertiaryContainer,
           ),
           button: const TextStyle(
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
           overline: TextStyle(
@@ -130,30 +135,21 @@ class AppThemeLight extends AppTheme {
 
   ColorScheme get _appColorScheme {
     return const ColorScheme(
-        background: null,
-        brightness: null,
-        error: null,
-        onBackground: null,
-        onError: null,
-        onPrimary: null,
-        onSecondary: null,
-        onSurface: null,
-        primary: null,
-        secondary: null,
-        surface: null
-        // primary: Color(0xFF0D1C2E),
-        // primaryVariant: Color(0xFF425466),
-        // secondary: Color(0xFF3E66FB),
-        // secondaryVariant: Color(0xFF03249D),
-        // surface: Colors.white,
-        // background: Color(0xFFF0F3F5),
-        // error: Color(0xFFEC002D),
-        // onPrimary: Color(0xFFE2E6EC),
-        // onSecondary: Color(0xFF838F9C),
-        // onSurface: Color(0xFFEC7F00),
-        // onBackground: Color(0xFF469E7B),
-        // onError: Color(0xFF00C382),
-        brightness: Brightness.light,
-        );
+      onBackground: Colors.white,
+      background: Color(0xFFF6F5F5), //bg
+      onError: Colors.white,
+      error: Colors.redAccent,
+      onPrimary: Colors.white,
+      primary: Color(0xFF51DC8E), //green
+      onSecondary: Colors.white,
+      secondary: Color(0xFF483FF7), //pripurble
+      onSurface: Colors.white,
+      surface: Colors.white,
+      tertiaryContainer: Color(0xFF141414), //text / dark
+      tertiary: Color(0xFF2D0C57), //text / darkPurble
+      onTertiaryContainer: Color(0xFF8F92A1), //text / textGrey
+      onTertiary: Color(0xFF5E6375), //text / grey
+      brightness: Brightness.light,
+    );
   }
 }
