@@ -34,9 +34,11 @@ class LoginView extends StatelessWidget {
                   Padding(
                     padding: context.verticalPaddingLow,
                     child: Material(
+                      shadowColor: context.colorScheme.onTertiaryContainer
+                          .withOpacity(0.45),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      elevation: 10,
+                      elevation: 15,
                       child: const TextField(),
                     ),
                   ),
@@ -45,7 +47,9 @@ class LoginView extends StatelessWidget {
                     child: Material(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      elevation: 10,
+                      elevation: 15,
+                      shadowColor: context.colorScheme.onTertiaryContainer
+                          .withOpacity(0.45),
                       child: const TextField(
                         obscureText: true,
                       ),
@@ -72,7 +76,7 @@ class LoginView extends StatelessWidget {
                     height: context.dynamicHeight(0.075),
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text('Send'),
+                      child: Text('Giriş Yap'),
                     ),
                   ),
                   const Spacer(),
