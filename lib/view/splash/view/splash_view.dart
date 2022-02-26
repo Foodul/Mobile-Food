@@ -7,9 +7,35 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colorScheme.primaryVariant,
       body: Center(
-        child: Text('Splash'),
+        child: Column(
+          children: [
+            Text(
+              'h1',
+              style: context.textTheme.headline1,
+            ),
+            Text(
+              'h2',
+              style: context.textTheme.headline2,
+            ),
+            Text(
+              'h3',
+              style: context.textTheme.headline3,
+            ),
+            Text(
+              'h4',
+              style: context.textTheme.headline4,
+            ),
+            Text(
+              'body',
+              style: context.textTheme.bodyText1,
+            ),
+            Text(
+              'body2',
+              style: context.textTheme.bodyText2,
+            ),
+          ],
+        ),
       ),
     );
   }
