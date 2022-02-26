@@ -7,4 +7,6 @@ class NavigationConstants {
   static const ON_BOARD = '/onBoard';
   static const HOME = '/home';
   static const BOTTOM_TAB = '/bottomtab';
+  static const CAMERA = '/camera';
+  static const FOOD_DETAIL = '/foodDetail';
 }

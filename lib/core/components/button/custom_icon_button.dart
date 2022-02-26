@@ -7,6 +7,8 @@ class CustomIconButton extends StatelessWidget {
   final String iconAsset;
   final double? padding;
   final ShapeBorder? shape;
+  final Color? backgroundColor;
+  final Color? iconColor;
 
   const CustomIconButton({
     Key? key,
@@ -14,6 +16,8 @@ class CustomIconButton extends StatelessWidget {
     required this.iconAsset,
     this.padding,
     this.shape,
+    this.backgroundColor,
+    this.iconColor,
   }) : super(key: key);
 
   @override
@@ -21,9 +25,11 @@ class CustomIconButton extends StatelessWidget {
     return SizedBox(
       width: context.dynamicWidth(0.15),
       child: MaterialButton(
+        color: backgroundColor,
         onPressed: onPressed,
         child: SvgPicture.asset(
           iconAsset,
+          color: iconColor,
         ),
         padding: EdgeInsets.all(padding ?? 16),
         shape: shape ?? const CircleBorder(),

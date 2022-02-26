@@ -5,10 +5,14 @@ class NotFoundNavigationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Scaffold(
-        body: Text('Not Found'),
-      ),
+    return const Scaffold(
+      body: Center(
+          child: Text(
+        'Not Found',
+        style: TextStyle(
+          fontSize: 40,
+        ),
+      )),
     );
   }
 }

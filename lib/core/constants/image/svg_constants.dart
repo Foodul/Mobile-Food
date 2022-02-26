@@ -9,6 +9,15 @@ class SVGImageConstants {
   /// final example = 'example'.toSVG;
   final logo = 'logo'.toSVG;
   final amblemLogo = 'amblemLogo'.toSVG;
+  final close = 'close'.toSVG;
+  final flashAuto = 'flash_auto'.toSVG;
+  final flashOff = 'flash_off'.toSVG;
+  final flashOn = 'flash_on'.toSVG;
+  final flash = 'flash'.toSVG;
+  final flip = 'flip'.toSVG;
+  final gallery = 'gallery'.toSVG;
+  final circle = 'circle'.toSVG;
+  final send = 'send'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {
