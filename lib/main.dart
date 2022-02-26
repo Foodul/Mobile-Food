@@ -16,21 +16,24 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [...ApplicationProvider.instance.dependItems],
     child: EasyLocalization(
-      child: MyApp(),
+      child: const MyApp(),
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: AppConstants.LANG_ASSET_PATH,
       startLocale: LanguageManager.instance.enLocale,
     ),
   ));
+  await _init();
 }
 
-// Future<void> _init() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await EasyLocalization.ensureInitialized();
-//   await Firebase.initializeApp();
-// }
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  // await Firebase.initializeApp();
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
