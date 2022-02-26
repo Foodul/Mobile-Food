@@ -10,4 +10,12 @@ abstract class _ProfilViewModelBase with Store, BaseViewModel {
   void setContext(BuildContext context) => this.context = context;
   @override
   void init() {}
+
+  List tabs = ['CO2 İstatistiğim', "Kalori Alımlarım", "Arkadaşlarım"];
+
+  @observable
+  int tabsSelectIndex = 0;
+
+  @action
+  changeTabSelect(value) => tabsSelectIndex = value;
 }
