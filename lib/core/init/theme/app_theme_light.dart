@@ -130,19 +130,30 @@ class AppThemeLight extends AppTheme {
 
   ColorScheme get _appColorScheme {
     return const ColorScheme(
-      primary: Color(0xFF0D1C2E),
-      primaryVariant: Color(0xFF425466),
-      secondary: Color(0xFF3E66FB),
-      secondaryVariant: Color(0xFF03249D),
-      surface: Colors.white,
-      background: Color(0xFFF0F3F5),
-      error: Color(0xFFEC002D),
-      onPrimary: Color(0xFFE2E6EC),
-      onSecondary: Color(0xFF838F9C),
-      onSurface: Color(0xFFEC7F00),
-      onBackground: Color(0xFF469E7B),
-      onError: Color(0xFF00C382),
-      brightness: Brightness.light,
-    );
+        background: null,
+        brightness: null,
+        error: null,
+        onBackground: null,
+        onError: null,
+        onPrimary: null,
+        onSecondary: null,
+        onSurface: null,
+        primary: null,
+        secondary: null,
+        surface: null
+        // primary: Color(0xFF0D1C2E),
+        // primaryVariant: Color(0xFF425466),
+        // secondary: Color(0xFF3E66FB),
+        // secondaryVariant: Color(0xFF03249D),
+        // surface: Colors.white,
+        // background: Color(0xFFF0F3F5),
+        // error: Color(0xFFEC002D),
+        // onPrimary: Color(0xFFE2E6EC),
+        // onSecondary: Color(0xFF838F9C),
+        // onSurface: Color(0xFFEC7F00),
+        // onBackground: Color(0xFF469E7B),
+        // onError: Color(0xFF00C382),
+        brightness: Brightness.light,
+        );
   }
 }
