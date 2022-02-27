@@ -27,7 +27,7 @@ class CategoriesCard extends StatelessWidget {
           children: [
             // color
             Expanded(
-              flex: 6,
+              flex: 8,
               child: Container(
                 width: context.dynamicWidth(0.5),
                 decoration: const BoxDecoration(
@@ -35,26 +35,28 @@ class CategoriesCard extends StatelessWidget {
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10)),
                 ),
-                child: CachedNetworkImage(
-                  imageUrl: imageUrl.toString(),
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  child: CachedNetworkImage(
+                    imageUrl: imageUrl.toString(),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
             Expanded(
-                flex: 4,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        title.toString(),
-                        style: context.textTheme.subtitle2!
-                            .copyWith(color: context.colorScheme.tertiary),
-                      ),
-                    ),
-                  ],
-                )),
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  title.toString(),
+                  style: context.textTheme.subtitle2!
+                      .copyWith(color: context.colorScheme.tertiary),
+                ),
+              ),
+            ),
           ],
         ),
       ),

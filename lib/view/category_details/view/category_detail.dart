@@ -103,10 +103,11 @@ class _CategoryDetailViewState extends State<CategoryDetailView> {
                             child: GridView.builder(
                                 gridDelegate:
                                     const SliverGridDelegateWithMaxCrossAxisExtent(
-                                        maxCrossAxisExtent: 200,
-                                        childAspectRatio: 3 / 2.6,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 20),
+                                  maxCrossAxisExtent: 200,
+                                  childAspectRatio: 3 / 2.6,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 15,
+                                ),
                                 itemCount: viewModel
                                     .categories[viewModel.selectedTab]
                                     .details!

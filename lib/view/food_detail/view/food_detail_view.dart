@@ -55,7 +55,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
             },
           ),
           title: Text(
-            'Gıda Detay',
+            'Food Detail',
             style: context.textTheme.headline6!.copyWith(
               color: context.colorScheme.tertiaryContainer,
               fontSize: 18,
@@ -162,7 +162,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                               ),
                                               SizedBox(width: context.lowValue),
                                               Text(
-                                                'Sağlık Oranı',
+                                                'Health Rate',
                                                 style: context
                                                     .textTheme.headline6!
                                                     .copyWith(
@@ -189,7 +189,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            '1 Adet Kalori oranı',
+                                            '1 Piece Calori Value',
                                             style: context.textTheme.headline5!
                                                 .copyWith(
                                               color: context
@@ -203,7 +203,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                                   .instance.calori),
                                               SizedBox(width: context.lowValue),
                                               Text(
-                                                70.toString() + ' Kalori',
+                                                70.toString() + ' Calori',
                                                 style: context
                                                     .textTheme.headline6!
                                                     .copyWith(
@@ -229,7 +229,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            '100 gram kalori oranı',
+                                            '100 grams calori value',
                                             style: context.textTheme.headline5!
                                                 .copyWith(
                                               color: context
@@ -243,7 +243,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                                   .instance.calori),
                                               SizedBox(width: context.lowValue),
                                               Text(
-                                                70.toString() + ' Kalori',
+                                                70.toString() + ' Calori',
                                                 style: context
                                                     .textTheme.headline6!
                                                     .copyWith(
@@ -269,7 +269,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Karbon Ayak İzi Değeri',
+                                            'Carbon Footprint Value',
                                             style: context.textTheme.headline5!
                                                 .copyWith(
                                               color: context
@@ -298,9 +298,9 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                       ),
                                       child: InfoCard(
                                         alertText:
-                                            'Dondurma tüketerek ....  yapmak kadar karbon tükemi yapmaktasınız.',
-                                        lightbulb:
-                                            SVGImageConstants.instance.flash,
+                                            'By consuming ice cream, you consume as much carbon as driving a car for 5 hours.',
+                                        lightbulb: SVGImageConstants
+                                            .instance.lightbulb,
                                       ),
                                     ),
                                     Padding(
@@ -402,7 +402,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                                           // viewModel.submit();
                                         },
                                         child: Text(
-                                          'Ekle',
+                                          'Add',
                                           style: context.textTheme.headline6!
                                               .copyWith(
                                             color: context
