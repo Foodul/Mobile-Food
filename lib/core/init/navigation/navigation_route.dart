@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
+import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
 import '../../../view/splash/view/splash_view.dart';
 // import 'package:oneri_sistemi_mobile/view/profil_edit/view/profil_edit_view.dart';
@@ -39,6 +41,12 @@ class NavigationRoute {
         return normalNavigate(const LoginView());
       case NavigationConstants.TIPS_DETAIL:
         return normalNavigate(const TipsDetailView());
+      case NavigationConstants.HOME:
+        return normalNavigate(const HomeView());
+      case NavigationConstants.BOTTOM_TAB:
+        return normalNavigate(const BottomTabView());
+      // case NavigationConstants.TEST:
+      //   return normalNavigate(const TestView());
       // case NavigationConstants.ON_BOARD:
       //   return normalNavigate(const OnboardView());
       // case NavigationConstants.LOGIN:
@@ -72,13 +80,6 @@ class NavigationRoute {
       // case NavigationConstants.REPORT:
       //   return normalNavigate(const ReportView());
 
-      // case NavigationConstants.CHANGE_PASSWORD:
-      //   return normalNavigate(const ChangePasswordView());
-      // case NavigationConstants.SUGGESTION_CONTROL:
-      //   final model = args.arguments as SuggestionControl;
-      //   return normalNavigate(SuggestionControlView(
-      //     suggestionControlModel: model,
-      //   ));
       default:
         return MaterialPageRoute(
           builder: (context) => const NotFoundNavigationWidget(),

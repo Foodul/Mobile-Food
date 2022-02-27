@@ -17,15 +17,13 @@ abstract class BaseViewModel {
   void setContext(BuildContext context);
   void init();
 
-  void showMessage(BaseResponseModel? model) {
-    if (model == null) return;
+  void showMessage({String? message, bool type = false}) {
+    if (message?.isEmpty ?? false) return;
     ScaffoldMessenger.of(context!).showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,
-        content: Text(
-          model.message ?? model.type.toString(),
-        ),
-        backgroundColor: model.type! ? Colors.green : Colors.red,
+        content: Text(message!),
+        backgroundColor: type ? Colors.green : Colors.red,
       ),
     );
   }

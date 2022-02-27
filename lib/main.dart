@@ -1,8 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
+import 'package:foodul/view/categories/view/categories_view.dart';
+import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
 import 'package:foodul/view/tips/view/tips_view.dart';
+import 'package:foodul/view/profil/view/profil_view.dart';
 import 'package:provider/provider.dart';
 
 import 'core/constants/app/app_constants.dart';
@@ -14,7 +19,7 @@ import 'core/init/notifier/provider_list.dart';
 import 'core/init/notifier/theme_notifer.dart';
 
 Future<void> main() async {
-  // await _init();
+  await _init();
   runApp(MultiProvider(
     providers: [...ApplicationProvider.instance.dependItems],
     child: EasyLocalization(
@@ -26,17 +31,16 @@ Future<void> main() async {
   ));
 }
 
-// Future<void> _init() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await EasyLocalization.ensureInitialized();
-//   await Firebase.initializeApp();
-// }
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp();
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const TipsView(),
       debugShowCheckedModeBanner: false,
       theme: context.watch<ThemeNotifier>().currentTheme,
       localizationsDelegates: context.localizationDelegates,

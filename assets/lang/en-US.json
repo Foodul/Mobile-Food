@@ -3,5 +3,115 @@
         "title":"Tips"
     },
 
-    "TipsDetail":"Tips Detail"
+    "TipsDetail":"Tips Detail",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor",
+    "welcome": "Welcome",
+    "somethingWentWrong": "Something went wrong",
+    "somethingWentWrongDesc": "Please try again later",
+    "tryAgain": "Try again",
+    "seeAll": "See all",
+    "homeView": {
+        "carbonValue": "Carbon Value",
+        "spendValue": "Spend Value",
+        "spendingHistory": "Spending History",
+        "noRegisteredFoodFound": "No registered food found",
+        "today": "Today",
+        "findFood": "Find Food",
+        "thisWeek": "This week"
+
+    },
+    "CategoriesView": {
+    "find": "Find",
+    "findFood": "Find Food",
+    "categories": "Categories"
+    },
+    "Onboard": {
+        "title": "",
+        "subtitle": ""
+    },
+    "Login": {
+        "forgotPassword": "Forgot password ?",
+        "signIn": "Sing In",
+        "pleaseProvideEmail": "Please provide a valid email",
+        "fieldRequired": "This field required",
+        "passwordValidation": "Password should be 8 to 14 characters"
+    },
+    "Button": {
+        "login": "Login",
+        "sign_in": "Sign in",
+        "okey": "Okey",
+        "cancel": "Cancel",
+        "archive": "Archive",
+        "send":"Send",
+        "AddFileOrImage": "Add file or image",
+        "remove": "Remove",
+        "clear": "Clear",
+        "back": "Back",
+        "edit": "Edit",
+        "approve": "Approve",
+        "change": "Change",
+        "update":"Update",
+        "continue": "Continue"
+    },
+    "Input": {
+        "email": "Email",
+        "password": "Password",
+        "title":"Title",
+        "description": "Description",
+        "category": "Category",
+        "process": "Process",
+        "name":"Name",
+        "surname":"Surname",
+        "phone":"Phone",
+        "endDate": "End Date"
+    },
+    "Atom": {
+        "uploaded": "uploaded",
+        "attachedDocuments": "Attached Documents",
+        "password": "Password",
+        "title":"Title",
+        "description": "Description",
+        "category": "Category",
+        "process": "Process",
+        "date": "Date"
+    },
+    "ValidateMessage": {
+        "required": "The field is required.",
+        "phone":"The phone must be a valid phone number.",
+        "selectContent":"Could not select content, try again!"
+    },
+    "notifications": {
+        "title": "Notifications",
+        "doNotForget": "Do not forget!",
+        "seeNow": "See details",
+        "year": "year ago",
+        "years": "years ago",
+        "month": "month ago",
+        "months": "months ago",
+        "week": "week ago",
+        "weeks": "weeks ago",
+        "day": "day ago",
+        "days": "days ago",
+        "hour": "hour ago",
+        "hours": "hours ago",
+        "minute": "minute ago",
+        "minutes": "minutes ago",
+        "now": "Just now"
+    },
+    "profile": {
+        "title": "Profile",
+        "language": "Language Preferences",
+        "changePassword": "Change Password",
+        "help": "Support",
+        "logout": "Log out"
+    },
+    "ProfilEdit": {
+        "title": "Profil Edit"
+    },
+    "changePassword": {
+        "title": "Change Password",
+        "oldPass": "Old Password",
+        "newPass": "New Password",
+        "newPassRepeat": "New Password Repeat"
+    }
 }

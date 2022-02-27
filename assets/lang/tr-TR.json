@@ -2,5 +2,116 @@
     "Tips":{
         "title":"İpuçları"
     },
-    "TipsDetail":"İpucu Detayları"
+    "TipsDetail":"İpucu Detayları",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor",
+    "welcome": "Hoşgeldiniz",
+    "somethingWentWrong": "Bir şeyler ters gitti",
+    "somethingWentWrongDesc": "Lütfen daha sonra tekrar deneyiniz",
+    "tryAgain": "Tekrar dene",
+    "seeAll": "Tümünü gör",
+    "homeView": {
+        "carbonValue": "Karbon Değeri",
+        "spendValue": "Harcanan Değer",
+        "spendingHistory": "Harcama Geçmişi",
+        "createNow": "Hemen Oluştur",
+        "findFood": "Gıda Ara",
+        "noRegisteredFoodFound": "Kayıtlı gıda bulunamadı",
+        "today": "Bugün",
+        "thisWeek": "Bu Hafta"
+    },
+    "Onboard": {
+        "title": "",
+        "subtitle": ""
+    },
+    "CategoriesView": {
+        "find": "Arama",
+        "findFood": "Gıda Ara",
+        "categories": "Kategoriler"
+        
+    },
+    "Login": {
+        "forgotPassword": "Şifremi unuttum ?",
+        "signIn": "Giriş Yap",
+        "pleaseProvideEmail": "Lütfen geçerli bir e-posta giriniz",
+        "fieldRequired": "Bu alan geçerli",
+        "passwordValidation": "Şifre 8 ile 14 karakter arasında olmalıdır."
+    },
+    "Button": {
+        "login": "Giriş Yap",
+        "sign_in": "Kayıt Ol",
+        "okey": "Tamam",
+        "cancel": "Vazgeç",
+        "archive": "Arşivle",
+        "send": "Gönder",
+        "AddFileOrImage": "Dosya ya da görsel ekle",
+        "remove": "Remove",
+        "clear": "Clear",
+        "edit": "Düzenle",
+        "back":"Geri Dön",
+        "approve": "Onayla",
+        "change": "Değiştir",
+        "continue": "Devam et",
+        "update":"Güncelle"
+
+    },
+    "Input": {
+        "email": "Email",
+        "password": "Şifre",
+        "title": "Başlık",
+        "description": "Açıklama",
+        "category": "Kategori",
+        "process": "Süreç",
+        "name": "İsim",
+        "surname": "Soyisim",
+        "phone": "Telefon",
+        "endDate": "Bitiş Tarihi"
+    },
+    "Atom": {
+        "uploaded": "yüklendi",
+        "attachedDocuments": "Eklenilen Dokümanlar",
+        "password": "Şifre",
+        "title": "Başlık",
+        "description": "Açıklama",
+        "category": "Kategori",
+        "date": "Tarih"
+    },
+    "ValidateMessage": {
+        "required": "Bu alan zorunludur.",
+        "phone": "Girilen telefon numarası geçerli olmalıdır.",
+        "selectContent":"İçerik seçilemedi tekrar deneyiniz!"
+    },
+    "notifications": {
+        "title": "Bildirimler",
+        "doNotForget": "Unutmayın!",
+        "seeNow": "Görüntüle",
+        "year": "yıl önce",
+        "years": "yıl önce",
+        "month": "ay önce",
+        "months": "ay önce",
+        "week": "hafta önce",
+        "weeks": "hafta önce",
+        "day": "gün önce",
+        "days": "gün önce",
+        "hour": "saat önce",
+        "hours": "saat önce",
+        "minute": "dakika önce",
+        "minutes": "dakika önce",
+        "now": "Şimdi"
+    },
+    "profile": {
+        "title": "Profil",
+        "language": "Dil Seçenekleri",
+        "changePassword": "Şifre Değiştir",
+        "help": "Destek",
+        "logout": "Çıkış Yap"
+    }, 
+    "ProfilEdit": {
+        "title": "Profil Düzenle"
+    },
+    "changePassword": {
+        "title": "Şifre Değiştir",
+        "oldPass": "Eski şifre",
+        "newPass": "Yeni Şifre",
+        "newPassRepeat": "Yeni Şifre Tekrar"
+    }
 }

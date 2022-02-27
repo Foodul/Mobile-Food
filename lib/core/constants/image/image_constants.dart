@@ -22,6 +22,9 @@ class ImageConstants {
   final vegetables = 'vegetables'.toPNG;
   final krep = 'krep'.toPNG;
   final beef = 'beef'.toPNG;
+  final banana = 'banana'.toPNG;
+  final profil = 'profil'.toPNG;
+  final profilIcon = 'profil_icon'.toPNG;
 }
 
 extension ImageConstantsExtension on String {
