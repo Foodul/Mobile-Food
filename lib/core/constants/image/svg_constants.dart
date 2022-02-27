@@ -9,6 +9,11 @@ class SVGImageConstants {
   /// final example = 'example'.toSVG;
   final logo = 'logo'.toSVG;
   final amblemLogo = 'amblemLogo'.toSVG;
+  final lightbulb = 'lightbulb'.toSVG;
+  final arrowRight = 'arrow-right'.toSVG;
+  final like = 'like'.toSVG;
+  final share = 'share'.toSVG;
+  final chevronleft = 'chevronleft'.toSVG;
   final trending_down = 'trending-down'.toSVG;
   final flash = 'flash'.toSVG;
   final salad = 'salad'.toSVG;

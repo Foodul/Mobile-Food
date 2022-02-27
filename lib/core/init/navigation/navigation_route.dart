@@ -23,6 +23,7 @@ import '../../../view/splash/view/splash_view.dart';
 // import '../../../view/splash/view/splash_view.dart';
 // import '../../../view/suggestion_register/view/suggestion_register_view.dart';
 import '../../../view/test/view/test_view.dart';
+import '../../../view/tips_detail/view/tips_detail_view.dart';
 import '../../components/card/not_found_navigation_widget.dart';
 import '../../constants/navigation/navigation_constants.dart';
 
@@ -38,6 +39,8 @@ class NavigationRoute {
         return normalNavigate(const SplashView());
       case NavigationConstants.LOGIN:
         return normalNavigate(const LoginView());
+      case NavigationConstants.TIPS_DETAIL:
+        return normalNavigate(const TipsDetailView());
       case NavigationConstants.HOME:
         return normalNavigate(const HomeView());
       case NavigationConstants.BOTTOM_TAB:

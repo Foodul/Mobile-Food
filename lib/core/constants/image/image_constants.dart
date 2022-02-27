@@ -16,6 +16,12 @@ class ImageConstants {
   // final userPointBackground = 'user_point_background'.toPNG;
   // final personImage = 'personImage'.toPNG;
   final splashBG = 'splashBG'.toPNG;
+  final limon = 'limon'.toPNG;
+  final orange = 'orange'.toPNG;
+  final waste = 'waste'.toPNG;
+  final vegetables = 'vegetables'.toPNG;
+  final krep = 'krep'.toPNG;
+  final beef = 'beef'.toPNG;
   final banana = 'banana'.toPNG;
   final profil = 'profil'.toPNG;
   final profilIcon = 'profil_icon'.toPNG;

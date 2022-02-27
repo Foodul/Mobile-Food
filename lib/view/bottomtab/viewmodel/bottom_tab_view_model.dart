@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:foodul/core/constants/navigation/navigation_constants.dart';
 import 'package:foodul/view/categories/view/categories_view.dart';
 import 'package:foodul/view/profil/view/profil_view.dart';
+import 'package:foodul/view/tips/view/tips_view.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/src/provider.dart';
 
@@ -37,7 +39,7 @@ abstract class _BottomTabViewModelBase with Store, BaseViewModel {
     const HomeView(),
     const CategoriesView(),
     const SizedBox(),
-    const SizedBox(),
+    const TipsView(),
     const ProfileView(),
   ]);
 
@@ -63,7 +65,11 @@ abstract class _BottomTabViewModelBase with Store, BaseViewModel {
   int tabIndex = 0;
 
   @action
-  void changeTabIndex(index) {
-    tabIndex = index;
+  Future<void> changeTabIndex(index) async {
+    if (index == 2) {
+      await navigation.navigateToPage(path: NavigationConstants.HOME);
+    } else {
+      tabIndex = index;
+    }
   }
 }

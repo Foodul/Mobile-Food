@@ -6,6 +6,7 @@ import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/categories/view/categories_view.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
+import 'package:foodul/view/tips/view/tips_view.dart';
 import 'package:foodul/view/profil/view/profil_view.dart';
 import 'package:provider/provider.dart';
 

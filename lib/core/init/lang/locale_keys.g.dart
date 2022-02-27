@@ -1,6 +1,9 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
+  static const Tips_title = 'Tips.title';
+  static const Tips = 'Tips';
+  static const TipsDetail = 'TipsDetail';
   static const lorem = 'lorem';
   static const welcome = 'welcome';
   static const somethingWentWrong = 'somethingWentWrong';
@@ -12,7 +15,8 @@ abstract class  LocaleKeys {
   static const homeView_spendingHistory = 'homeView.spendingHistory';
   static const homeView_createNow = 'homeView.createNow';
   static const homeView_findFood = 'homeView.findFood';
-  static const homeView_noRegisteredFoodFound = 'homeView.noRegisteredFoodFound';
+  static const homeView_noRegisteredFoodFound =
+      'homeView.noRegisteredFoodFound';
   static const homeView_today = 'homeView.today';
   static const homeView_thisWeek = 'homeView.thisWeek';
   static const homeView = 'homeView';
@@ -98,5 +102,4 @@ abstract class  LocaleKeys {
   static const changePassword_newPass = 'changePassword.newPass';
   static const changePassword_newPassRepeat = 'changePassword.newPassRepeat';
   static const changePassword = 'changePassword';
-
 }
