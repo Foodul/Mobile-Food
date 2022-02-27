@@ -23,6 +23,8 @@ class SVGImageConstants {
   final qrcodeIcon = 'qrcode_icon'.toSVG;
   final searchIcon = 'search_icon'.toSVG;
   final tipsIcon = 'tips_icon'.toSVG;
+  final cookies_icon = 'cookies_icon'.toSVG;
+  final on_board_right_icon = 'on_board_right_icon'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {

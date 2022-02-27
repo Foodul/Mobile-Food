@@ -1,6 +1,7 @@
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:foodul/core/constants/navigation/navigation_constants.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../core/base/view/base_widget.dart';
@@ -96,7 +97,7 @@ class OnboardView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     ElevatedButton(
                       onPressed: () {},
                       child: Text('Create a new acount'),
@@ -105,7 +106,11 @@ class OnboardView extends StatelessWidget {
                     ),
                     const Spacer(),
                     OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await context.navigateToReset(
+                          NavigationConstants.LOGIN,
+                        );
+                      },
                       child: Text('Login'),
                       style: TextButton.styleFrom(
                           minimumSize: Size(context.width, 60)),

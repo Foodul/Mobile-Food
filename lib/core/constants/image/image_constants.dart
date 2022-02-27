@@ -29,6 +29,9 @@ class ImageConstants {
   final onBoard1 = 'onBoard1'.toPNG;
   final onBoard2 = 'onBoard2'.toPNG;
   final onBoard3 = 'onBoard3'.toPNG;
+
+  final on_board_enter_bg = 'on_board_enter_bg'.toPNG;
+  final on_board_enter_right = 'on_board_enter_right'.toPNG;
 }
 
 extension ImageConstantsExtension on String {

@@ -6,6 +6,7 @@ import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/categories/view/categories_view.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
+import 'package:foodul/view/onboard/view/onboard_enter_view.dart';
 import 'package:foodul/view/onboard/view/onboard_view.dart';
 import 'package:foodul/view/tips/view/tips_view.dart';
 import 'package:foodul/view/profil/view/profil_view.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: OnboardView(),
+      home: OnBoardEnterView(),
       debugShowCheckedModeBanner: false,
       theme: context.watch<ThemeNotifier>().currentTheme,
       localizationsDelegates: context.localizationDelegates,

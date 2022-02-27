@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
+import 'package:foodul/view/onboard/view/onboard_view.dart';
 import '../../../view/splash/view/splash_view.dart';
 // import 'package:oneri_sistemi_mobile/view/profil_edit/view/profil_edit_view.dart';
 // import 'package:oneri_sistemi_mobile/view/profile/view/profile_view.dart';
@@ -45,6 +46,8 @@ class NavigationRoute {
         return normalNavigate(const HomeView());
       case NavigationConstants.BOTTOM_TAB:
         return normalNavigate(const BottomTabView());
+      case NavigationConstants.ON_BOARD:
+        return normalNavigate(const OnboardView());
       // case NavigationConstants.TEST:
       //   return normalNavigate(const TestView());
       // case NavigationConstants.ON_BOARD:
