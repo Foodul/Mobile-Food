@@ -44,7 +44,8 @@ abstract class _SplashViewModelBase with Store, BaseViewModel {
     await Future.delayed(context!.durationNormal);
 
     if (localeManager.getStringValue(PreferencesKeys.TOKEN).isEmpty) {
-      await navigation.navigateToPageClear(path: NavigationConstants.LOGIN);
+      await navigation.navigateToPageClear(
+          path: NavigationConstants.ON_BOARD_ENTER);
     } else {
       await navigation.navigateToPageClear(
           path: NavigationConstants.BOTTOM_TAB);

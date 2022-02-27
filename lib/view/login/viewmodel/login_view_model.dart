@@ -26,7 +26,7 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   }
 
   @observable
-  bool isPasswordLocked = false;
+  bool isPasswordLocked = true;
 
   @action
   changePasswordLocked() => isPasswordLocked = !isPasswordLocked;

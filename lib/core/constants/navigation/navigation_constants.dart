@@ -10,4 +10,5 @@ class NavigationConstants {
   static const CATEGORIES = '/categories';
   static const CATEGORIES_DETAIL = '/categoriesDetail';
   static const TIPS_DETAIL = '/tipsDetail';
+  static const ON_BOARD_ENTER = '/onBoardEnter';
 }
