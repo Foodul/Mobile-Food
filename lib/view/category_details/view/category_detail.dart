@@ -7,18 +7,20 @@ import 'package:kartal/kartal.dart';
 
 import '../../../core/base/view/base_widget.dart';
 import '../../../core/components/widget_size.dart';
+import '../../../core/constants/navigation/navigation_constants.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../_product/widgets/cards/categories_card_widget.dart';
 import '../../_product/widgets/chiptabs/chip_tab.dart';
 import '../model/category_detail_model.dart';
+import '../model/food_detail_navigation_model.dart';
 import '../view_model/category_view_model.dart';
 
 class CategoryDetailView extends StatefulWidget {
-  Object? data;
+  int? tabIndex;
 
   CategoryDetailView({
     Key? key,
-    this.data,
+    this.tabIndex,
   }) : super(key: key);
 
   @override
@@ -29,11 +31,10 @@ class _CategoryDetailViewState extends State<CategoryDetailView> {
   @override
   Widget build(BuildContext context) {
     return BaseView<CategoryDetailViewModel>(
-        viewModel: CategoryDetailViewModel(),
+        viewModel: CategoryDetailViewModel(widget.tabIndex),
         onModelReady: (model) {
           model.setContext(context);
           model.init();
-          model.setConstructorData(widget.data);
         },
         onPageBuilder: (BuildContext context,
                 CategoryDetailViewModel viewModel) =>
@@ -89,8 +90,10 @@ class _CategoryDetailViewState extends State<CategoryDetailView> {
                   }),
                   Expanded(
                     child: PageView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         controller: viewModel.pageController,
-                        itemCount: viewModel.categoryDetail!.details!.length,
+                        itemCount: viewModel
+                            .categories[widget.tabIndex!].details!.length,
                         onPageChanged: (value) => {
                               viewModel.changeSelectedTab(value, false),
                             },
@@ -104,16 +107,47 @@ class _CategoryDetailViewState extends State<CategoryDetailView> {
                                         childAspectRatio: 3 / 2.6,
                                         crossAxisSpacing: 20,
                                         mainAxisSpacing: 20),
-                                itemCount:
-                                    viewModel.categoryDetail!.details!.length,
-                                itemBuilder: (BuildContext ctx, index) {
-                                  return CategoriesCard(
-                                      imageUrl: viewModel
-                                          .categoryDetail!.details![index].image
-                                          .toString(),
-                                      title: viewModel
-                                          .categoryDetail!.details![index].title
-                                          .toString());
+                                itemCount: viewModel
+                                    .categories[viewModel.selectedTab]
+                                    .details!
+                                    .length,
+                                itemBuilder: (BuildContext ctx, int index) {
+                                  return GestureDetector(
+                                    onTap: viewModel
+                                            .categories[viewModel.selectedTab]
+                                            .details!
+                                            .isNotEmpty
+                                        ? () {
+                                            viewModel.navigation.navigateToPage(
+                                                path: NavigationConstants
+                                                    .FOOD_DETAIL,
+                                                data: FoodDetailNavigationModel(
+                                                    path: viewModel
+                                                        .categories[viewModel
+                                                            .selectedTab]
+                                                        .details![index]
+                                                        .image!,
+                                                    isNetwork: true,
+                                                    name: viewModel
+                                                        .categories[viewModel
+                                                            .selectedTab]
+                                                        .details![index]
+                                                        .title
+                                                        .toString()));
+                                          }
+                                        : () => {},
+                                    child: CategoriesCard(
+                                        imageUrl: viewModel
+                                            .categories[viewModel.selectedTab]
+                                            .details![index]
+                                            .image
+                                            .toString(),
+                                        title: viewModel
+                                            .categories[viewModel.selectedTab]
+                                            .details![index]
+                                            .title
+                                            .toString()),
+                                  );
                                 }),
                           );
                         }),

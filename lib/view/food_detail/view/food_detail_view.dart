@@ -1,7 +1,10 @@
 import 'dart:developer';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodul/view/category_details/model/food_detail_navigation_model.dart';
 import '../../../core/components/star_component.dart';
 import '../../../core/constants/image/svg_constants.dart';
 import 'package:kartal/kartal.dart';
@@ -12,8 +15,8 @@ import '../../../core/components/info_card.dart';
 import '../viewmodel/food_detail_view_model.dart';
 
 class FoodDetailView extends StatefulWidget {
-  final String? filePath;
-  const FoodDetailView({Key? key, this.filePath}) : super(key: key);
+  final FoodDetailNavigationModel? navModel;
+  const FoodDetailView({Key? key, this.navModel}) : super(key: key);
 
   @override
   State<FoodDetailView> createState() => _FoodDetailViewState();
@@ -31,7 +34,7 @@ class _FoodDetailViewState extends State<FoodDetailView> {
   Widget build(BuildContext context) {
     var child;
     return BaseView<FoodDetailViewModel>(
-      viewModel: FoodDetailViewModel(widget.filePath),
+      viewModel: FoodDetailViewModel(widget.navModel),
       onModelReady: (model) {
         model.setContext(context);
         model.init();
@@ -61,13 +64,20 @@ class _FoodDetailViewState extends State<FoodDetailView> {
         ),
         body: Stack(
           children: [
-            widget.filePath != null
-                ? Image.asset(
-                    widget.filePath!,
-                    height: context.dynamicHeight(0.55),
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  )
+            widget.navModel != null
+                ? !widget.navModel!.isNetwork
+                    ? Image.asset(
+                        widget.navModel!.path,
+                        height: context.dynamicHeight(0.55),
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      )
+                    : CachedNetworkImage(
+                        imageUrl: widget.navModel!.path,
+                        width: double.infinity,
+                        height: context.dynamicHeight(0.55),
+                        fit: BoxFit.cover,
+                      )
                 : const SizedBox(),
             DraggableScrollableSheet(
               maxChildSize: 0.8,
@@ -101,266 +111,309 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                         thickness: 4,
                         color: Color(0xFFE2E6EC),
                       ),
-                      Expanded(
-                        child: ListView(
-                          padding: EdgeInsets.zero,
-                          controller: myscrollController,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                top: context.mediumValue,
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Marul',
+                      Observer(
+                        builder: (_) => viewModel.label.isEmpty
+                            ? Center(
+                                child: Container(
+                                  child: Text(
+                                    'Not Found',
                                     style:
-                                        context.textTheme.headline5!.copyWith(
+                                        context.textTheme.headline2!.copyWith(
                                       color:
                                           context.colorScheme.tertiaryContainer,
                                     ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      const StarComponent(
-                                        stars: 5,
-                                      ),
-                                      SizedBox(width: context.lowValue),
-                                      Text(
-                                        'Sağlık Oranı',
-                                        style: context.textTheme.headline6!
-                                            .copyWith(
-                                          color: context.colorScheme.onTertiary,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: context.normalValue,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '1 Adet Kalori oranı',
-                                    style:
-                                        context.textTheme.headline5!.copyWith(
-                                      color: context.colorScheme.onTertiary,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(
-                                          SVGImageConstants.instance.calori),
-                                      SizedBox(width: context.lowValue),
-                                      Text(
-                                        70.toString() + ' Kalori',
-                                        style: context.textTheme.headline6!
-                                            .copyWith(
-                                          color: context
-                                              .colorScheme.tertiaryContainer,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: context.normalValue,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '100 gram kalori oranı',
-                                    style:
-                                        context.textTheme.headline5!.copyWith(
-                                      color: context.colorScheme.onTertiary,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(
-                                          SVGImageConstants.instance.calori),
-                                      SizedBox(width: context.lowValue),
-                                      Text(
-                                        70.toString() + ' Kalori',
-                                        style: context.textTheme.headline6!
-                                            .copyWith(
-                                          color: context
-                                              .colorScheme.tertiaryContainer,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: context.normalValue,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Karbon Ayak İzi Değeri',
-                                    style:
-                                        context.textTheme.headline5!.copyWith(
-                                      color: context.colorScheme.onTertiary,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                  Text(
-                                    1200.toString() + ' CO2',
-                                    style:
-                                        context.textTheme.headline6!.copyWith(
-                                      color:
-                                          context.colorScheme.tertiaryContainer,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: context.normalValue,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              child: InfoCard(
-                                alertText:
-                                    'Dondurma tüketerek ....  yapmak kadar karbon tükemi yapmaktasınız.',
-                                lightbulb: SVGImageConstants.instance.flash,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: customDropdownField(
-                                        context,
-                                        viewModel.getTypeDropdown,
-                                        'Weight type',
-                                        (value) => viewModel
-                                            .setWorkFlowTextValue(value),
-                                        value: viewModel.typeValue),
-                                  ),
-                                  SizedBox(width: context.lowValue),
-                                  Expanded(
-                                    child: Container(
-                                      height: context.dynamicWidth(0.15),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.5),
-                                            spreadRadius: 5,
-                                            blurRadius: 7,
-                                            offset: const Offset(
-                                              0,
-                                              3,
-                                            ), // changes position of shadow
-                                          ),
-                                        ],
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(15),
-                                        ),
-                                      ),
-                                      child: const TextField(
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(15),
-                                            ),
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(15),
-                                            ),
-                                          ),
-                                          disabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(15),
-                                            ),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(15),
-                                            ),
-                                          ),
-                                          contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 10,
-                                            vertical: 20,
-                                          ),
-                                          hintText: 'Amount',
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(
-                                left: context.normalValue,
-                                right: context.normalValue,
-                              ),
-                              width: double.infinity,
-                              height: context.dynamicHeight(0.075),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  // viewModel.submit();
-                                },
-                                child: Text(
-                                  'Ekle',
-                                  style: context.textTheme.headline6!.copyWith(
-                                    color:
-                                        context.colorScheme.tertiaryContainer,
                                   ),
                                 ),
+                              )
+                            : Expanded(
+                                child: ListView(
+                                  padding: EdgeInsets.zero,
+                                  controller: myscrollController,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        top: context.mediumValue,
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Observer(builder: (_) {
+                                            return Text(
+                                              widget.navModel!.name != null
+                                                  ? widget.navModel!.name!
+                                                  : viewModel.label.isNotEmpty
+                                                      ? viewModel.label
+                                                      : '',
+                                              style: context
+                                                  .textTheme.headline5!
+                                                  .copyWith(
+                                                color: context.colorScheme
+                                                    .tertiaryContainer,
+                                              ),
+                                            );
+                                          }),
+                                          Row(
+                                            children: [
+                                              const StarComponent(
+                                                stars: 5,
+                                              ),
+                                              SizedBox(width: context.lowValue),
+                                              Text(
+                                                'Sağlık Oranı',
+                                                style: context
+                                                    .textTheme.headline6!
+                                                    .copyWith(
+                                                  color: context
+                                                      .colorScheme.onTertiary,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: context.normalValue,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '1 Adet Kalori oranı',
+                                            style: context.textTheme.headline5!
+                                                .copyWith(
+                                              color: context
+                                                  .colorScheme.onTertiary,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(SVGImageConstants
+                                                  .instance.calori),
+                                              SizedBox(width: context.lowValue),
+                                              Text(
+                                                70.toString() + ' Kalori',
+                                                style: context
+                                                    .textTheme.headline6!
+                                                    .copyWith(
+                                                  color: context.colorScheme
+                                                      .tertiaryContainer,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: context.normalValue,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '100 gram kalori oranı',
+                                            style: context.textTheme.headline5!
+                                                .copyWith(
+                                              color: context
+                                                  .colorScheme.onTertiary,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(SVGImageConstants
+                                                  .instance.calori),
+                                              SizedBox(width: context.lowValue),
+                                              Text(
+                                                70.toString() + ' Kalori',
+                                                style: context
+                                                    .textTheme.headline6!
+                                                    .copyWith(
+                                                  color: context.colorScheme
+                                                      .tertiaryContainer,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: context.normalValue,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            'Karbon Ayak İzi Değeri',
+                                            style: context.textTheme.headline5!
+                                                .copyWith(
+                                              color: context
+                                                  .colorScheme.onTertiary,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                          Text(
+                                            1200.toString() + ' CO2',
+                                            style: context.textTheme.headline6!
+                                                .copyWith(
+                                              color: context.colorScheme
+                                                  .tertiaryContainer,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: context.normalValue,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      child: InfoCard(
+                                        alertText:
+                                            'Dondurma tüketerek ....  yapmak kadar karbon tükemi yapmaktasınız.',
+                                        lightbulb:
+                                            SVGImageConstants.instance.flash,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: customDropdownField(
+                                                context,
+                                                viewModel.getTypeDropdown,
+                                                'Weight type',
+                                                (value) => viewModel
+                                                    .setWorkFlowTextValue(
+                                                        value),
+                                                value: viewModel.typeValue),
+                                          ),
+                                          SizedBox(width: context.lowValue),
+                                          Expanded(
+                                            child: Container(
+                                              height:
+                                                  context.dynamicWidth(0.15),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.grey
+                                                        .withOpacity(0.5),
+                                                    spreadRadius: 5,
+                                                    blurRadius: 7,
+                                                    offset: const Offset(
+                                                      0,
+                                                      3,
+                                                    ), // changes position of shadow
+                                                  ),
+                                                ],
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                  Radius.circular(15),
+                                                ),
+                                              ),
+                                              child: const TextField(
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(
+                                                    borderSide: BorderSide.none,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(15),
+                                                    ),
+                                                  ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide.none,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(15),
+                                                    ),
+                                                  ),
+                                                  disabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide.none,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(15),
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide.none,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(15),
+                                                    ),
+                                                  ),
+                                                  contentPadding:
+                                                      EdgeInsets.symmetric(
+                                                    horizontal: 10,
+                                                    vertical: 20,
+                                                  ),
+                                                  hintText: 'Amount',
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                        left: context.normalValue,
+                                        right: context.normalValue,
+                                      ),
+                                      width: double.infinity,
+                                      height: context.dynamicHeight(0.075),
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          // viewModel.submit();
+                                        },
+                                        child: Text(
+                                          'Ekle',
+                                          style: context.textTheme.headline6!
+                                              .copyWith(
+                                            color: context
+                                                .colorScheme.tertiaryContainer,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
                       ),
                     ],
                   ),

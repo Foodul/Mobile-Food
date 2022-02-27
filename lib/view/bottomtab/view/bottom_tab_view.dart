@@ -38,7 +38,7 @@ class BottomTabView extends StatelessWidget {
                       topRight: Radius.circular(20),
                     ),
                     child: SizedBox(
-                      height: context.dynamicHeight(0.1) +
+                      height: context.dynamicHeight(0.11) +
                           (MediaQuery.of(context).padding.bottom / 2),
                       child: BottomNavigationBar(
                         showSelectedLabels: false,

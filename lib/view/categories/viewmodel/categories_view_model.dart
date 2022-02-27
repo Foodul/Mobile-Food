@@ -95,21 +95,29 @@ abstract class _CategoriesViewModelBase with Store, BaseViewModel {
           ),
         ]),
     CategoriesModel(
-        image:
-            'https://cdn.vox-cdn.com/thumbor/A_jC-vC8q_aK7hqQQOwiDexNCTo=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21890023/Snacks.jpg',
-        title: 'Snacks'),
+      image:
+          'https://cdn.vox-cdn.com/thumbor/A_jC-vC8q_aK7hqQQOwiDexNCTo=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21890023/Snacks.jpg',
+      title: 'Snacks',
+      details: [],
+    ),
     CategoriesModel(
-        image:
-            'https://simply-delicious-food.com/wp-content/uploads/2019/07/Pancake-board-2.jpg',
-        title: 'Breakfast'),
+      image:
+          'https://simply-delicious-food.com/wp-content/uploads/2019/07/Pancake-board-2.jpg',
+      title: 'Breakfast',
+      details: [],
+    ),
     CategoriesModel(
-        image:
-            'https://www.texasrealfood.com/discover/wp-content/uploads/sites/3/2020/04/iStock-493058654-min-1.jpg',
-        title: 'Staple Food'),
+      image:
+          'https://www.texasrealfood.com/discover/wp-content/uploads/sites/3/2020/04/iStock-493058654-min-1.jpg',
+      title: 'Staple Food',
+      details: [],
+    ),
     CategoriesModel(
-        image:
-            'https://media.baamboozle.com/uploads/images/206824/1622533346_327808_url.jpeg',
-        title: 'Drinks'),
+      image:
+          'https://media.baamboozle.com/uploads/images/206824/1622533346_327808_url.jpeg',
+      title: 'Drinks',
+      details: [],
+    ),
   ];
 
   void setContext(BuildContext context) => this.context = context;

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foodul/view/category_details/model/food_detail_navigation_model.dart';
 import '../../../core/base/viewmodel/base_view_model.dart';
 import 'package:mobx/mobx.dart';
 import 'package:tflite/tflite.dart';
@@ -10,9 +11,9 @@ part 'food_detail_view_model.g.dart';
 class FoodDetailViewModel = _FoodDetailViewModelBase with _$FoodDetailViewModel;
 
 abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
-  final String? filePath;
+  final FoodDetailNavigationModel? navModel;
 
-  _FoodDetailViewModelBase(this.filePath);
+  _FoodDetailViewModelBase(this.navModel);
 
   @override
   void setContext(BuildContext context) => this.context = context;
@@ -24,8 +25,10 @@ abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
     ]);
     print('init view model');
     await loadModel();
-    if (filePath != null) {
-      await classifyImage(filePath!);
+    if (navModel != null) {
+      if (!navModel!.isNetwork) {
+        await classifyImage(navModel!.path);
+      }
     }
   }
 
@@ -44,11 +47,12 @@ abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
   }
 
   @observable
-  ObservableList? output = ObservableList.of([]);
+  String label = '';
 
   classifyImage(String path) async {
+    List? result = [];
     //this function runs the model on the image
-    final result = await Tflite.runModelOnImage(
+    result = await Tflite.runModelOnImage(
       path: path,
       numResults: 137, //the amout of categories our neural network can predict
       threshold: 0.5,
@@ -57,11 +61,9 @@ abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
       asynch: true,
     );
 
-    output = ObservableList.of(result!);
-
-    inspect(output);
-    if (output!.isNotEmpty) {
-      print(output![0]);
+    if (result!.isNotEmpty) {
+      print(result[0]);
+      label = result[0]['label'];
     }
   }
 

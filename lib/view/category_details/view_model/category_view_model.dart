@@ -12,6 +12,7 @@ class CategoryDetailViewModel = _CategoryDetailViewModelBase
     with _$CategoryDetailViewModel;
 
 abstract class _CategoryDetailViewModelBase with Store, BaseViewModel {
+  final tabIndex;
   CategoriesModel? categoryDetail;
   List tabs = [
     {
@@ -28,7 +29,7 @@ abstract class _CategoryDetailViewModelBase with Store, BaseViewModel {
   List<CategoriesModel> categories = [
     CategoriesModel(
         image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
+            'https://blog.obilet.com/wp-content/uploads/2021/05/Sebzeler-scaled.jpeg',
         details: [
           CategoryDetails(
             image:
@@ -41,8 +42,33 @@ abstract class _CategoryDetailViewModelBase with Store, BaseViewModel {
               title: 'Tomato'),
           CategoryDetails(
             image:
+                'https://cdn03.ciceksepeti.com/cicek/kcm82904816-1/XL/iri-dev-patlican-tohumu-ithal-dev-patlican-tohumu-10-tohum-surpriz-hediye-tohum-kcm82904816-1-e564f51930074e07abe8d2bc4d310f50.jpg',
+            title: 'Aubergine',
+          ),
+          CategoryDetails(
+            image:
+                'https://www.aftamarket.com.tr/sogan-sebzeler-manav-12415-17-B.jpg',
+            title: 'Onion',
+          ),
+          CategoryDetails(
+            image:
                 'https://www.tohumsanati.com/yalcin-biber-tohumutatlitarla-carliston-biberler-yuksel-tohum-339-50-B.jpg',
             title: 'Peper',
+          ),
+          CategoryDetails(
+            image:
+                'https://i.nefisyemektarifleri.com/2017/11/08/bamya-nasil-yapilir-begenilen-bamya-yemekleri-1-600x400.jpg',
+            title: 'Okra',
+          ),
+          CategoryDetails(
+            image:
+                'https://www.tarlaniz.com/image/cache/catalog/sebzeler/sarimsak-1000x1000.jpg',
+            title: 'Garlic',
+          ),
+          CategoryDetails(
+            image:
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiXtcaaK00GQNviR4-ViWRZ7iOjG9mYxTKRsKlXLQ21ly8R4sUJkP6toqhA7pfQorOUJw&usqp=CAU',
+            title: 'Cabbage',
           ),
         ],
         title: 'Vegetables'),
@@ -87,123 +113,32 @@ abstract class _CategoryDetailViewModelBase with Store, BaseViewModel {
           ),
         ]),
     CategoriesModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Snacks'),
+      image:
+          'https://cdn.vox-cdn.com/thumbor/A_jC-vC8q_aK7hqQQOwiDexNCTo=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21890023/Snacks.jpg',
+      title: 'Snacks',
+      details: [],
+    ),
     CategoriesModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Breakfast'),
+      image:
+          'https://simply-delicious-food.com/wp-content/uploads/2019/07/Pancake-board-2.jpg',
+      title: 'Breakfast',
+      details: [],
+    ),
     CategoriesModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Staple Food'),
+      image:
+          'https://www.texasrealfood.com/discover/wp-content/uploads/sites/3/2020/04/iStock-493058654-min-1.jpg',
+      title: 'Staple Food',
+      details: [],
+    ),
     CategoriesModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
+      image:
+          'https://media.baamboozle.com/uploads/images/206824/1622533346_327808_url.jpeg',
+      title: 'Drinks',
+      details: [],
+    ),
   ];
 
-  List<CategoryDetailModel> items = [
-    CategoryDetailModel(
-        image: 'https://www.seraf.com.tr/kivi-500-g-meyve-1094-35-B.jpg',
-        title: 'Vegetables'),
-    CategoryDetailModel(
-        image: 'https://www.seraf.com.tr/kivi-500-g-meyve-1094-35-B.jpg',
-        title: 'Fruits'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Snacks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Breakfast'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Staple Food'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-    CategoryDetailModel(
-        image:
-            'https://images.unsplash.com/photo-1606604830353-4da34f5a208a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2004&q=80',
-        title: 'Drinks'),
-  ];
+  _CategoryDetailViewModelBase(this.tabIndex);
 
   void setConstructorData(data) {
     categoryDetail = data;
@@ -238,7 +173,7 @@ abstract class _CategoryDetailViewModelBase with Store, BaseViewModel {
   @action
   void changeSelectedTab(int index, bool isTab) {
     // Check if the selection difference is two
-    if ((selectedTab - index).abs() == 2) {
+    if ((selectedTab - index).abs() >= 2) {
       selectedTab = index;
       /** If it is then change isOneTab as false in order to prevent 
        * from the page change comes from the page view
@@ -262,5 +197,7 @@ abstract class _CategoryDetailViewModelBase with Store, BaseViewModel {
   }
 
   void setContext(BuildContext context) => this.context = context;
-  void init() {}
+  void init() {
+    selectedTab = tabIndex;
+  }
 }

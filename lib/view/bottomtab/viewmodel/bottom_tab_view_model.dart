@@ -67,7 +67,7 @@ abstract class _BottomTabViewModelBase with Store, BaseViewModel {
   @action
   Future<void> changeTabIndex(index) async {
     if (index == 2) {
-      await navigation.navigateToPage(path: NavigationConstants.HOME);
+      await navigation.navigateToPage(path: NavigationConstants.CAMERA);
     } else {
       tabIndex = index;
     }

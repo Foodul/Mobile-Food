@@ -6,6 +6,7 @@ import '../../../view/bottomtab/view/bottom_tab_view.dart';
 import '../../../view/camera/view/camera_view.dart';
 import '../../../view/categories/model/categories_model.dart';
 import '../../../view/categories/view/categories_view.dart';
+import '../../../view/category_details/model/food_detail_navigation_model.dart';
 import '../../../view/category_details/view/category_detail.dart';
 import '../../../view/food_detail/view/food_detail_view.dart';
 import '../../../view/home/view/home_view.dart';
@@ -32,9 +33,9 @@ class NavigationRoute {
       case NavigationConstants.CAMERA:
         return normalNavigate(const CameraView());
       case NavigationConstants.FOOD_DETAIL:
-        final String filePath = args.arguments as String;
+        final model = args.arguments as FoodDetailNavigationModel;
         return normalNavigate(FoodDetailView(
-          filePath: filePath,
+          navModel: model,
         ));
       case NavigationConstants.TIPS_DETAIL:
         return normalNavigate(const TipsDetailView());
@@ -43,9 +44,9 @@ class NavigationRoute {
       case NavigationConstants.CATEGORIES:
         return normalNavigate(const CategoriesView());
       case NavigationConstants.CATEGORIES_DETAIL:
-        final model = args.arguments as CategoriesModel;
+        final model = args.arguments as int;
         return normalNavigate(CategoryDetailView(
-          data: model,
+          tabIndex: model,
         ));
       case NavigationConstants.BOTTOM_TAB:
         return normalNavigate(const BottomTabView());

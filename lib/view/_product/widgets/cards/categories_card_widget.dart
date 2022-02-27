@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -28,16 +29,15 @@ class CategoriesCard extends StatelessWidget {
             Expanded(
               flex: 6,
               child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      imageUrl.toString(),
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: const BorderRadius.only(
+                width: context.dynamicWidth(0.5),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10)),
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl.toString(),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

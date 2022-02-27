@@ -120,13 +120,15 @@ class ProfileView extends StatelessWidget {
                                   );
                                 case 2:
                                   return ListView.builder(
-                                    physics: const ClampingScrollPhysics(),
+                                    padding: EdgeInsets.zero,
+                                    // physics:
+                                    //     const NeverScrollableScrollPhysics(),
                                     shrinkWrap: true,
                                     itemCount: viewModel.friendList.length,
                                     itemBuilder: (context, index) => friendCard(
                                         context,
                                         viewModel.friendList[index],
-                                        index,
+                                        index + 1,
                                         viewModel.friendList.length),
                                   );
 

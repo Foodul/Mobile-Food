@@ -75,11 +75,13 @@ class CategoriesView extends StatelessWidget {
                   itemCount: viewModel.categories.length,
                   itemBuilder: (BuildContext ctx, index) {
                     return GestureDetector(
-                      onTap: () {
-                        viewModel.navigation.navigateToPage(
-                            path: NavigationConstants.CATEGORIES_DETAIL,
-                            data: viewModel.categories[index]);
-                      },
+                      onTap: viewModel.categories[index].details!.isNotEmpty
+                          ? () {
+                              viewModel.navigation.navigateToPage(
+                                  path: NavigationConstants.CATEGORIES_DETAIL,
+                                  data: index);
+                            }
+                          : () => {},
                       child: CategoriesCard(
                           imageUrl:
                               viewModel.categories[index].image.toString(),

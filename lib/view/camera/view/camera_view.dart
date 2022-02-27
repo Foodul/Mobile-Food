@@ -6,6 +6,7 @@ import 'package:file_picker/file_picker.dart' as filePicker;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:foodul/view/category_details/model/food_detail_navigation_model.dart';
 import '../../../core/extension/string_extension.dart';
 import 'package:kartal/kartal.dart';
 
@@ -398,7 +399,10 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
                                 viewModel.navigation
                                     .navigateToPage(
                                   path: NavigationConstants.FOOD_DETAIL,
-                                  data: _imagePath,
+                                  data: FoodDetailNavigationModel(
+                                    path: _imagePath,
+                                    isNetwork: false,
+                                  ),
                                 )
                                     .then((value) {
                                   SystemChrome.setEnabledSystemUIMode(
