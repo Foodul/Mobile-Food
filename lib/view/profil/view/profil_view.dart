@@ -2,8 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodul/core/base/view/base_widget.dart';
 import 'package:foodul/core/constants/image/image_constants.dart';
+import 'package:foodul/core/constants/image/svg_constants.dart';
+import 'package:foodul/core/utility/helpers.dart';
+import 'package:foodul/view/_product/chart/line_chart.dart';
 import 'package:foodul/view/profil/viewmodel/profil_view_model.dart';
 import 'package:kartal/kartal.dart';
 
@@ -28,8 +32,9 @@ class ProfileView extends StatelessWidget {
                     header_area(context),
                     SizedBox(
                       width: context.width,
-                      height: 100,
+                      height: context.dynamicWidth(0.25),
                       child: ListView.builder(
+                        physics: const ClampingScrollPhysics(),
                         padding: context.horizontalPaddingNormal,
                         scrollDirection: Axis.horizontal,
                         itemCount: viewModel.tabs.length,
@@ -42,19 +47,173 @@ class ProfileView extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       height: 500,
-                      child: PageView.builder(
-                          physics: const ClampingScrollPhysics(),
-                          itemCount: 3,
-                          itemBuilder: ((context, index) => Container(
-                                height: 500,
-                                width: double.infinity,
-                                color: context.randomColor,
-                              ))),
+                      child: Padding(
+                        padding: context.horizontalPaddingNormal,
+                        child: PageView.builder(
+                            physics: const ClampingScrollPhysics(),
+                            controller: viewModel.pageviewController,
+                            itemCount: 3,
+                            itemBuilder: ((context, index) {
+                              switch (index) {
+                                case 0:
+                                  return Column(
+                                    children: [
+                                      CustomLineChart(
+                                        lineChart: viewModel.corbonReportsData,
+                                        bottomTitleList: (value) {
+                                          return viewModel
+                                              .bottomTitleQuarterMonths(value,
+                                                  "Ocak", "Şubar", "Mart");
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: context.dynamicWidth(.05),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            context.horizontalPaddingNormal,
+                                        child: Text(
+                                          'Önerilen veriler sizin yaş grubunuz ve verilerinize göre ortalama bir değer üzerinden verilmiştir.',
+                                          style: context.textTheme.bodyText2,
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      )
+                                    ],
+                                  );
+                                case 1:
+                                  return Column(
+                                    children: [
+                                      CustomLineChart(
+                                        lineChart: viewModel.caloriReport,
+                                        bottomTitleList: (value) {
+                                          return viewModel
+                                              .bottomTitleQuarterMonths(value,
+                                                  "Ocak", "Şubar", "Mart");
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: context.dynamicWidth(.05),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            context.horizontalPaddingNormal,
+                                        child: Text(
+                                          'Önerilen veriler sizin yaş grubunuz ve verilerinize göre ortalama bir değer üzerinden verilmiştir.',
+                                          style: context.textTheme.bodyText2,
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      )
+                                    ],
+                                  );
+                                case 2:
+                                  return ListView.builder(
+                                    physics: const ClampingScrollPhysics(),
+                                    itemCount: viewModel.friendList.length,
+                                    itemBuilder: (context, index) => friendCard(
+                                        context,
+                                        viewModel.friendList[index],
+                                        index,
+                                        10),
+                                  );
+                                default:
+                                  return const SizedBox();
+                              }
+                            })),
+                      ),
                     )
                   ],
                 ),
               ),
             ));
+  }
+
+  Widget friendCard(BuildContext context, String name, int index, int total) {
+    return Padding(
+      padding: context.verticalPaddingLow,
+      child: SizedBox(
+        height: 30,
+        width: double.infinity,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: CircleAvatar(
+                child: FittedBox(
+                  child: CircleAvatar(
+                    backgroundImage:
+                        NetworkImage('https://i.pravatar.cc/?img=$index'),
+                  ),
+                ),
+              ),
+            ),
+            Flexible(
+              flex: 5,
+              fit: FlexFit.loose,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: FractionallySizedBox(
+                  heightFactor: 0.9,
+                  widthFactor: index < 8 ? 1 - (index / total) : .2,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    decoration: BoxDecoration(
+                      color: setColorFormat(index),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(100),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        index < 4
+                            ? Padding(
+                                padding: const EdgeInsets.only(right: 5),
+                                child: SvgPicture.asset(
+                                    SVGImageConstants.instance.gift),
+                              )
+                            : const SizedBox(),
+                        Text(
+                          '$index.',
+                          overflow: TextOverflow.visible,
+                          style: context.textTheme.bodyText1!
+                              .copyWith(color: context.colorScheme.surface),
+                          softWrap: false,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Flexible(
+                flex: 3,
+                fit: FlexFit.loose,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      name,
+                      style: context.textTheme.bodyText2,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'LV. ${(4 * total - index) - index * 2}',
+                      style: context.textTheme.bodyText2!.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: context.colorScheme.tertiary),
+                    ),
+                  ],
+                ))
+          ],
+        ),
+      ),
+    );
   }
 
   Widget tabsItem(BuildContext context, ProfilViewModel viewModel, int index,
@@ -89,10 +248,6 @@ class ProfileView extends StatelessWidget {
                   isActive ? context.colorScheme.secondary : Colors.transparent,
               shape: BoxShape.circle,
             ),
-            // child: CircleAvatar(
-            // radius: context.dynamicWidth(.01),
-            // backgroundColor:
-            //     ? context.colorScheme.secondary : Colors.transparent,
           ),
         ),
       ],
@@ -153,12 +308,11 @@ class ProfileView extends StatelessWidget {
                 ),
                 SizedBox(height: context.dynamicWidth(.075)),
                 Container(
-                  // height: context.dynamicWidth(0.15),
                   padding: context.paddingNormal,
                   decoration: BoxDecoration(
                       color:
                           context.colorScheme.surfaceVariant.withOpacity(0.7),
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.center,
