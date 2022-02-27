@@ -1,4 +1,8 @@
 {
+    "Tips":{
+        "title":"İpuçları"
+    },
+    "TipsDetail":"İpucu Detayları",
     "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor",
     "welcome": "Hoşgeldiniz",
     "somethingWentWrong": "Bir şeyler ters gitti",

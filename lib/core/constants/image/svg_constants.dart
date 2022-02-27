@@ -9,10 +9,20 @@ class SVGImageConstants {
   /// final example = 'example'.toSVG;
   final logo = 'logo'.toSVG;
   final amblemLogo = 'amblemLogo'.toSVG;
+  final lightbulb = 'lightbulb'.toSVG;
+  final arrowRight = 'arrow-right'.toSVG;
+  final like = 'like'.toSVG;
+  final share = 'share'.toSVG;
+  final chevronleft = 'chevronleft'.toSVG;
   final trending_down = 'trending-down'.toSVG;
   final flash = 'flash'.toSVG;
   final salad = 'salad'.toSVG;
   final gift = 'gift'.toSVG;
+
+  final homeIcon = 'home_icon'.toSVG;
+  final qrcodeIcon = 'qrcode_icon'.toSVG;
+  final searchIcon = 'search_icon'.toSVG;
+  final tipsIcon = 'tips_icon'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {

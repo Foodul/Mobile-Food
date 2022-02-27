@@ -2,10 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/categories/view/categories_view.dart';
 import 'package:foodul/view/category_details/view/category_detail.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
+import 'package:foodul/view/tips/view/tips_view.dart';
 import 'package:foodul/view/profil/view/profil_view.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +42,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CategoriesView(),
       debugShowCheckedModeBanner: false,
       theme: context.watch<ThemeNotifier>().currentTheme,
       localizationsDelegates: context.localizationDelegates,

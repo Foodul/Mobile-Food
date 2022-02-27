@@ -9,4 +9,5 @@ class NavigationConstants {
   static const BOTTOM_TAB = '/bottomtab';
   static const CATEGORIES = '/categories';
   static const CATEGORIES_DETAIL = '/categoriesDetail';
+  static const TIPS_DETAIL = '/tipsDetail';
 }

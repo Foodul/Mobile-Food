@@ -1,4 +1,9 @@
 {
+    "Tips":{
+        "title":"Tips"
+    },
+
+    "TipsDetail":"Tips Detail",
     "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor",
     "welcome": "Welcome",
     "somethingWentWrong": "Something went wrong",
