@@ -1,8 +1,12 @@
+import 'dart:developer';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:foodul/core/base/viewmodel/base_view_model.dart';
+import 'package:foodul/core/constants/enums/preferences_keys_enum.dart';
+import 'package:foodul/core/constants/navigation/navigation_constants.dart';
 import 'package:foodul/view/_product/model/line_chart_model.dart';
+import 'package:kartal/kartal.dart';
 import 'package:mobx/mobx.dart';
 part 'profil_view_model.g.dart';
 
@@ -144,6 +148,19 @@ abstract class _ProfilViewModelBase with Store, BaseViewModel {
         return q3;
       default:
         return "";
+    }
+  }
+
+  popupMenu(int index) async {
+    inspect(index);
+    switch (index) {
+      case 0:
+        localeManager.setStringValue(PreferencesKeys.TOKEN, '');
+        await navigation.navigateToPageClear(
+          path: NavigationConstants.LOGIN,
+        );
+        break;
+      default:
     }
   }
 }

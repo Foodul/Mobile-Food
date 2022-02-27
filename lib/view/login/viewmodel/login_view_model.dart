@@ -38,12 +38,12 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
       try {
         final response = await auth.signInWithEmailAndPassword(
             email: emailController!.text, password: passwordController!.text);
-        if (response.user?.uid != null) {
+        if (response.user?.uid.isNotEmpty ?? false) {
           await localeManager.setStringValue(
               PreferencesKeys.TOKEN, response.user!.uid);
-          // await navigation.navigateToPageClear(
-          //   path: NavigationConstants.BOTTOM_TAB,
-          // );
+          await navigation.navigateToPageClear(
+            path: NavigationConstants.BOTTOM_TAB,
+          );
         }
       } on FirebaseException catch (e) {
         showMessage(message: e.message);
