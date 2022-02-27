@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
 import '../../../view/splash/view/splash_view.dart';
@@ -39,6 +40,8 @@ class NavigationRoute {
         return normalNavigate(const LoginView());
       case NavigationConstants.HOME:
         return normalNavigate(const HomeView());
+      case NavigationConstants.BOTTOM_TAB:
+        return normalNavigate(const BottomTabView());
       // case NavigationConstants.TEST:
       //   return normalNavigate(const TestView());
       // case NavigationConstants.ON_BOARD:

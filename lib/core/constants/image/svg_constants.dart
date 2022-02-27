@@ -13,6 +13,11 @@ class SVGImageConstants {
   final flash = 'flash'.toSVG;
   final salad = 'salad'.toSVG;
   final gift = 'gift'.toSVG;
+
+  final homeIcon = 'home_icon'.toSVG;
+  final qrcodeIcon = 'qrcode_icon'.toSVG;
+  final searchIcon = 'search_icon'.toSVG;
+  final tipsIcon = 'tips_icon'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {
