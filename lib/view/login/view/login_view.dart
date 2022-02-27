@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodul/core/base/view/base_widget.dart';
-import 'package:foodul/core/constants/image/svg_constants.dart';
-import 'package:foodul/view/login/viewmodel/login_view_model.dart';
+import '../../../core/base/view/base_widget.dart';
+import '../../../core/constants/image/svg_constants.dart';
+import '../viewmodel/login_view_model.dart';
 import 'package:kartal/kartal.dart';
 
 class LoginView extends StatelessWidget {

@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:foodul/core/base/viewmodel/base_view_model.dart';
+import '../../../core/base/viewmodel/base_view_model.dart';
+import '../../../core/constants/enums/preferences_keys_enum.dart';
+import '../../../core/constants/navigation/navigation_constants.dart';
 import 'package:mobx/mobx.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 part 'login_view_model.g.dart';
@@ -24,15 +26,28 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   }
 
   @observable
-  bool isPasswordLocked = false;
+  bool isPasswordLocked = true;
 
   @action
   changePasswordLocked() => isPasswordLocked = !isPasswordLocked;
 
   @action
   submit() async {
-    final response = await auth.signInWithEmailAndPassword(
-        email: 'test@test.com', password: 'test123');
-    inspect(response);
+    if (emailController!.text.isNotEmpty &&
+        passwordController!.text.isNotEmpty) {
+      try {
+        final response = await auth.signInWithEmailAndPassword(
+            email: emailController!.text, password: passwordController!.text);
+        if (response.user?.uid.isNotEmpty ?? false) {
+          await localeManager.setStringValue(
+              PreferencesKeys.TOKEN, response.user!.uid);
+          await navigation.navigateToPageClear(
+            path: NavigationConstants.BOTTOM_TAB,
+          );
+        }
+      } on FirebaseException catch (e) {
+        showMessage(message: e.message);
+      }
+    }
   }
 }

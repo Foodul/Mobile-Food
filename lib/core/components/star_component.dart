@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodul/core/constants/image/svg_constants.dart';
+import '../constants/image/svg_constants.dart';
 import 'package:kartal/kartal.dart';
 
 class StarComponent extends StatelessWidget {

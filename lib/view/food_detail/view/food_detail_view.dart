@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodul/core/components/star_component.dart';
-import 'package:foodul/core/constants/image/svg_constants.dart';
+import '../../../core/components/star_component.dart';
+import '../../../core/constants/image/svg_constants.dart';
 import 'package:kartal/kartal.dart';
 import 'package:tflite/tflite.dart';
 

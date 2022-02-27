@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:foodul/core/base/viewmodel/base_view_model.dart';
+import '../../../core/base/viewmodel/base_view_model.dart';
 import 'package:mobx/mobx.dart';
 import 'package:tflite/tflite.dart';
 part 'food_detail_view_model.g.dart';

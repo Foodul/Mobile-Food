@@ -9,4 +9,8 @@ class NavigationConstants {
   static const BOTTOM_TAB = '/bottomtab';
   static const CAMERA = '/camera';
   static const FOOD_DETAIL = '/foodDetail';
+  static const CATEGORIES = '/categories';
+  static const CATEGORIES_DETAIL = '/categoriesDetail';
+  static const TIPS_DETAIL = '/tipsDetail';
+  static const ON_BOARD_ENTER = '/onBoardEnter';
 }

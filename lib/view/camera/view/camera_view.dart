@@ -6,7 +6,7 @@ import 'package:file_picker/file_picker.dart' as filePicker;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodul/core/extension/string_extension.dart';
+import '../../../core/extension/string_extension.dart';
 import 'package:kartal/kartal.dart';
 
 // import 'package:kartal/kartal.dart';
@@ -272,11 +272,8 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
                                   }
                                 } on PlatformException {
                                   viewModel.showMessage(
-                                    BaseResponseModel(
-                                        message: LocaleKeys
-                                            .ValidateMessage_selectContent
-                                            .locale,
-                                        type: false),
+                                    message: LocaleKeys
+                                        .ValidateMessage_selectContent.locale,
                                   );
                                 }
                               },

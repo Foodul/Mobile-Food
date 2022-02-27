@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../core/base/view/base_widget.dart';
+import '../../../core/base/view/base_widget.dart';
 import '../../../core/constants/image/image_constants.dart';
 import '../../../core/constants/image/svg_constants.dart';
 import '../viewmodel/splash_view_model.dart';

@@ -25,6 +25,13 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
     });
   }
 
+  final _$submitAsyncAction = AsyncAction('_LoginViewModelBase.submit');
+
+  @override
+  Future submit() {
+    return _$submitAsyncAction.run(() => super.submit());
+  }
+
   final _$_LoginViewModelBaseActionController =
       ActionController(name: '_LoginViewModelBase');
 
@@ -34,17 +41,6 @@ mixin _$LoginViewModel on _LoginViewModelBase, Store {
         name: '_LoginViewModelBase.changePasswordLocked');
     try {
       return super.changePasswordLocked();
-    } finally {
-      _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic submit() {
-    final _$actionInfo = _$_LoginViewModelBaseActionController.startAction(
-        name: '_LoginViewModelBase.submit');
-    try {
-      return super.submit();
     } finally {
       _$_LoginViewModelBaseActionController.endAction(_$actionInfo);
     }

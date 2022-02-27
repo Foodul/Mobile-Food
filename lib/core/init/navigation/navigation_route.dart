@@ -1,9 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:foodul/view/camera/view/camera_view.dart';
-import 'package:foodul/view/food_detail/view/food_detail_view.dart';
-import 'package:foodul/view/login/view/login_view.dart';
-import '../../../view/splash/view/splash_view.dart';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
+
+import '../../../view/bottomtab/view/bottom_tab_view.dart';
+import '../../../view/camera/view/camera_view.dart';
+import '../../../view/categories/model/categories_model.dart';
+import '../../../view/categories/view/categories_view.dart';
+import '../../../view/category_details/view/category_detail.dart';
+import '../../../view/food_detail/view/food_detail_view.dart';
+import '../../../view/home/view/home_view.dart';
+import '../../../view/login/view/login_view.dart';
+import '../../../view/onboard/view/onboard_enter_view.dart';
+import '../../../view/onboard/view/onboard_view.dart';
+import '../../../view/splash/view/splash_view.dart';
+import '../../../view/tips_detail/view/tips_detail_view.dart';
 import '../../components/card/not_found_navigation_widget.dart';
 import '../../constants/navigation/navigation_constants.dart';
 
@@ -26,6 +36,27 @@ class NavigationRoute {
         return normalNavigate(FoodDetailView(
           filePath: filePath,
         ));
+      case NavigationConstants.TIPS_DETAIL:
+        return normalNavigate(const TipsDetailView());
+      case NavigationConstants.HOME:
+        return normalNavigate(const HomeView());
+      case NavigationConstants.CATEGORIES:
+        return normalNavigate(const CategoriesView());
+      case NavigationConstants.CATEGORIES_DETAIL:
+        final model = args.arguments as CategoriesModel;
+        return normalNavigate(CategoryDetailView(
+          data: model,
+        ));
+      case NavigationConstants.BOTTOM_TAB:
+        return normalNavigate(const BottomTabView());
+      case NavigationConstants.ON_BOARD:
+        return normalNavigate(const OnboardView());
+      case NavigationConstants.ON_BOARD_ENTER:
+        return normalNavigate(const OnBoardEnterView());
+      // case NavigationConstants.TEST:
+      //   return normalNavigate(const TestView());
+      // case NavigationConstants.ON_BOARD:
+      //   return normalNavigate(const OnboardView());
       // case NavigationConstants.LOGIN:
       //   return normalNavigate(const LoginView());
       // case NavigationConstants.SUGGESTION_DETAIL:

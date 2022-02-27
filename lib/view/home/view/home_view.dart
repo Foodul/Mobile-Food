@@ -1,477 +1,473 @@
-// import 'package:easy_localization/src/public_ext.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_mobx/flutter_mobx.dart';
-// import 'package:flutter_svg/svg.dart';
-// import 'package:kartal/kartal.dart';
-// import 'package:oneri_sistemi_mobile/core/init/notifier/bottom_navigation_notifier.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/svg.dart';
+import '../../../core/base/view/base_widget.dart';
+import '../../../core/components/text_input/text_input_filed.dart';
+import '../../../core/constants/image/svg_constants.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
+import '../viewmodel/home_view_model.dart';
+import 'package:kartal/kartal.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-// import '../../../core/base/view/base_widget.dart';
-// import '../../../core/components/avatar/custom_circle_avatar.dart';
-// import '../../../core/components/widget_size.dart';
-// import '../../../core/constants/image/image_constants.dart';
-// import '../../../core/constants/image/svg_constants.dart';
-// import '../../../core/constants/navigation/navigation_constants.dart';
-// import '../../../core/init/lang/locale_keys.g.dart';
-// import '../../_product/cards/statu/statu_info_card.dart';
-// import '../../_product/cards/suggestion/create_suggestion_info.dart';
-// import '../../_product/cards/suggestion/profile_info_card.dart';
-// import '../../_product/chiptabs/chip_model.dart';
-// import '../../_product/chiptabs/chip_tabs.dart';
-// import '../viewmodel/home_view_model.dart';
-// import 'package:provider/src/provider.dart';
+class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
 
-// class HomeView extends StatelessWidget {
-//   const HomeView({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BaseView<HomeViewModel>(
-//       viewModel: HomeViewModel(),
-//       onModelReady: (model) {
-//         model.setContext(context);
-//         model.init();
-//       },
-//       onPageBuilder: (BuildContext context, HomeViewModel viewModel) =>
-//           Scaffold(
-//         appBar: appBar(context, viewModel),
-//         body: Observer(builder: (_) {
-//           return viewModel.isLoading
-//               ? const Center(
-//                   child: CircularProgressIndicator(),
-//                 )
-//               : Stack(
-//                   children: [
-//                     WidgetSize(
-//                       onChange: (Size size) {
-//                         viewModel.changeRatio(size.height);
-//                       },
-//                       child: Padding(
-//                         padding: EdgeInsets.only(
-//                           left: context.normalValue,
-//                           right: context.normalValue,
-//                           top: context.normalValue,
-//                         ),
-//                         child: Column(
-//                           mainAxisSize: MainAxisSize.min,
-//                           children: [
-//                             SizedBox(
-//                               height: context.dynamicWidth(0.15),
-//                               child: Row(
-//                                 mainAxisAlignment:
-//                                     MainAxisAlignment.spaceBetween,
-//                                 crossAxisAlignment: CrossAxisAlignment.center,
-//                                 children: [
-//                                   RichText(
-//                                     text: TextSpan(
-//                                       children: <TextSpan>[
-//                                         TextSpan(
-//                                           text: LocaleKeys.homeView_hiMessage
-//                                                   .tr() +
-//                                               ', ',
-//                                           style: context.textTheme.headline2,
-//                                         ),
-//                                         TextSpan(
-//                                           text: viewModel.activeUser.name! +
-//                                               ' ' +
-//                                               viewModel.activeUser.surname!,
-//                                           style: context.textTheme.headline4!
-//                                               .copyWith(
-//                                             color: context
-//                                                 .colorScheme.primaryVariant,
-//                                           ),
-//                                         ),
-//                                       ],
-//                                     ),
-//                                   ),
-//                                   CustomCircleAvatar(
-//                                     radius: context.dynamicWidth(0.15),
-//                                     imageUrl:
-//                                         viewModel.activeUser.avatar_img_url!,
-//                                   ),
-//                                 ],
-//                               ),
-//                             ),
-//                             SizedBox(
-//                               height: context.dynamicHeight(0.01),
-//                             ),
-//                             Container(
-//                               width: double.infinity,
-//                               height: context.dynamicWidth(0.25),
-//                               decoration: BoxDecoration(
-//                                 image: DecorationImage(
-//                                     fit: BoxFit.cover,
-//                                     image: AssetImage(ImageConstants
-//                                         .instance.userPointBackground)),
-//                                 borderRadius: const BorderRadius.all(
-//                                   Radius.circular(12),
-//                                 ),
-//                               ),
-//                               padding: EdgeInsets.only(
-//                                 left: context.lowValue,
-//                                 right: context.mediumValue,
-//                               ),
-//                               child: Row(
-//                                 children: [
-//                                   Row(
-//                                     children: [
-//                                       SizedBox(
-//                                         width: context.dynamicWidth(0.04),
-//                                       ),
-//                                       SvgPicture.asset(
-//                                         SVGImageConstants.instance.awardBig,
-//                                       ),
-//                                       SizedBox(
-//                                         width: context.dynamicWidth(0.05),
-//                                       ),
-//                                       Text(
-//                                         LocaleKeys.profile_totalPoints.tr(),
-//                                         style: context.textTheme.headline5!
-//                                             .copyWith(
-//                                           color: context.colorScheme.surface,
-//                                         ),
-//                                       ),
-//                                     ],
-//                                   ),
-//                                   const Spacer(),
-//                                   Text(
-//                                     viewModel.activeUser.userPoint.toString(),
-//                                     style:
-//                                         context.textTheme.headline2!.copyWith(
-//                                       color: context.colorScheme.surface,
-//                                     ),
-//                                   ),
-//                                 ],
-//                               ),
-//                             ),
-//                             SizedBox(
-//                               height: context.dynamicHeight(0.02),
-//                             ),
-//                             Row(
-//                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                               children: [
-//                                 ProfileInfoCard(
-//                                   icon: SVGImageConstants.instance.check,
-//                                   count: viewModel
-//                                       .activeUser.approvedSuggestionsCount!,
-//                                   desc: LocaleKeys.profile_approvedSuggestions
-//                                       .tr(),
-//                                   color: context.colorScheme.onBackground,
-//                                 ),
-//                                 ProfileInfoCard(
-//                                   icon: SVGImageConstants.instance.check,
-//                                   count:
-//                                       viewModel.activeUser.suggestionCount ?? 0,
-//                                   desc:
-//                                       LocaleKeys.profile_totalSuggestions.tr(),
-//                                   color: context.colorScheme.secondary,
-//                                 ),
-//                               ],
-//                             ),
-//                             SizedBox(
-//                               height: context.dynamicHeight(0.02),
-//                             ),
-//                             CreateSuggestionInfoCard(
-//                               // TODO: navigate to create suggestion page
-//                               onPressed: () async => {
-//                                 viewModel.navigation.navigateToPage(
-//                                     path:
-//                                         NavigationConstants.SUGGESTION_REGISTER)
-//                               },
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                     viewModel.draggableRatio != 0.0
-//                         ? SizedBox.expand(
-//                             child: NotificationListener<
-//                                 DraggableScrollableNotification>(
-//                               onNotification: (DraggableScrollableNotification
-//                                   notification) {
-//                                 viewModel.draggableHeightRatio =
-//                                     notification.extent;
-//                                 if (notification.extent > 0.95) {
-//                                   viewModel.isTop = true;
-//                                 } else {
-//                                   viewModel.isTop = false;
-//                                 }
-//                                 return true;
-//                               },
-//                               child: DraggableScrollableSheet(
-//                                 initialChildSize: viewModel.draggableRatio < 0.2
-//                                     ? 0.2
-//                                     : viewModel.draggableRatio - 0.2,
-//                                 minChildSize: viewModel.draggableRatio < 0.2
-//                                     ? 0.2
-//                                     : viewModel.draggableRatio - 0.2,
-//                                 builder: (
-//                                   BuildContext context,
-//                                   ScrollController myscrollController,
-//                                 ) {
-//                                   return Observer(builder: (_) {
-//                                     return Container(
-//                                       // duration: const Duration(seconds: 0),
-//                                       decoration: BoxDecoration(
-//                                         color: context.colorScheme.surface,
-//                                         borderRadius: BorderRadius.only(
-//                                           topLeft: viewModel
-//                                                       .draggableHeightRatio ==
-//                                                   0
-//                                               ? Radius.circular((1.2 -
-//                                                       viewModel
-//                                                           .draggableRatio) *
-//                                                   50)
-//                                               : Radius.circular((1 -
-//                                                       viewModel
-//                                                           .draggableHeightRatio) *
-//                                                   50),
-//                                           topRight: viewModel
-//                                                       .draggableHeightRatio ==
-//                                                   0
-//                                               ? Radius.circular((1.2 -
-//                                                       viewModel
-//                                                           .draggableRatio) *
-//                                                   50)
-//                                               : Radius.circular((1 -
-//                                                       viewModel
-//                                                           .draggableHeightRatio) *
-//                                                   50),
-//                                         ),
-//                                         boxShadow: [
-//                                           BoxShadow(
-//                                             color:
-//                                                 Colors.black.withOpacity(0.05),
-//                                             spreadRadius: 5,
-//                                             blurRadius: 15,
-//                                           ),
-//                                         ],
-//                                       ),
-//                                       padding: EdgeInsets.only(
-//                                         top: context.lowValue,
-//                                         // left: context.normalValue,
-//                                         // right: context.normalValue,
-//                                       ),
-//                                       child: ListView(
-//                                         controller: myscrollController,
-//                                         children: [
-//                                           viewModel.isTop
-//                                               ? const SizedBox()
-//                                               : const Divider(
-//                                                   endIndent: 160,
-//                                                   indent: 160,
-//                                                   thickness: 4,
-//                                                   color: Color(0xFFE2E6EC),
-//                                                 ),
-//                                           Padding(
-//                                             padding: EdgeInsets.only(
-//                                               left: context.normalValue,
-//                                               right: context.normalValue,
-//                                             ),
-//                                             child: Row(
-//                                               mainAxisAlignment:
-//                                                   MainAxisAlignment
-//                                                       .spaceBetween,
-//                                               children: [
-//                                                 Text(
-//                                                   LocaleKeys
-//                                                       .homeView_suggestions
-//                                                       .tr(),
-//                                                   style: context
-//                                                       .textTheme.headline4,
-//                                                 ),
-//                                                 TextButton(
-//                                                   // TODO: navigate to all suggestions tab
-//                                                   onPressed: () {
-//                                                     Future.microtask(() {
-//                                                       context
-//                                                           .read<
-//                                                               BottomNavigationNotifier>()
-//                                                           .setTabIndex(
-//                                                               index: 1);
-//                                                     });
-//                                                   },
-//                                                   child: Text(
-//                                                     LocaleKeys.seeAll.tr(),
-//                                                     style: context
-//                                                         .textTheme.headline6,
-//                                                   ),
-//                                                 )
-//                                               ],
-//                                             ),
-//                                           ),
-//                                           Observer(builder: (_) {
-//                                             return ChipTabs(
-//                                               tabs: [
-//                                                 ChipModel(
-//                                                   LocaleKeys
-//                                                       .homeView_tabs_mySuggestions
-//                                                       .tr(),
-//                                                   null,
-//                                                   () => {
-//                                                     viewModel
-//                                                         .changeSelectedTab(0)
-//                                                   },
-//                                                 ),
-//                                                 ChipModel(
-//                                                   LocaleKeys
-//                                                       .homeView_tabs_processOwnership
-//                                                       .tr(),
-//                                                   SVGImageConstants.instance
-//                                                       .process_owner_icon,
-//                                                   () => {
-//                                                     viewModel
-//                                                         .changeSelectedTab(1)
-//                                                   },
-//                                                 ),
-//                                                 ChipModel(
-//                                                   LocaleKeys
-//                                                       .homeView_tabs_solutionOwnership
-//                                                       .tr(),
-//                                                   SVGImageConstants.instance
-//                                                       .solution_owner_icon,
-//                                                   () => {
-//                                                     viewModel
-//                                                         .changeSelectedTab(2)
-//                                                   },
-//                                                 ),
-//                                               ],
-//                                               selectedIndex:
-//                                                   viewModel.selectedTab,
-//                                             );
-//                                           }),
-//                                           Padding(
-//                                             padding: EdgeInsets.symmetric(
-//                                               horizontal: context.normalValue,
-//                                               vertical: context.lowValue,
-//                                             ),
-//                                             child: GridView.builder(
-//                                               physics:
-//                                                   const NeverScrollableScrollPhysics(),
-//                                               shrinkWrap: true,
-//                                               gridDelegate:
-//                                                   SliverGridDelegateWithFixedCrossAxisCount(
-//                                                 childAspectRatio: 2.3,
-//                                                 crossAxisCount: 2,
-//                                                 mainAxisSpacing:
-//                                                     context.lowValue,
-//                                                 crossAxisSpacing:
-//                                                     context.lowValue,
-//                                               ),
-//                                               itemCount:
-//                                                   viewModel.statuIcons.length,
-//                                               itemBuilder: (context, index) {
-//                                                 return Observer(builder: (_) {
-//                                                   return StatuInfoCard(
-//                                                     desc: viewModel
-//                                                         .statuIcons[index].text,
-//                                                     icon: viewModel
-//                                                         .statuIcons[index].icon,
-//                                                     count: viewModel
-//                                                             .suggestionsCount[
-//                                                         viewModel
-//                                                             .selectedTab][index],
-//                                                     color: viewModel
-//                                                         .statuIcons[index]
-//                                                         .color,
-//                                                   );
-//                                                 });
-//                                               },
-//                                             ),
-//                                           ),
-//                                           // AutoSizeText(
-//                                           //   viewModel.suggestionCount,
-//                                           //   textAlign: TextAlign.center,
-//                                           //   style: context.textTheme.headline5,
-//                                           // ),
-//                                           // SizedBox(
-//                                           //   height: context.dynamicHeight(0.02),
-//                                           // ),
-//                                           // CreateSuggestionInfoCard(
-//                                           //   // TODO: navigate to create suggestion page
-//                                           //   onPressed: () => {},
-//                                           // ),
-//                                         ],
-//                                       ),
-//                                     );
-//                                   });
-//                                 },
-//                               ),
-//                             ),
-//                           )
-//                         : const SizedBox(),
-//                   ],
-//                 );
-//         }),
-//         floatingActionButton: FloatingActionButton(
-//           onPressed: () => {
-//             context.navigation
-//                 .pushNamed(NavigationConstants.SUGGESTION_REGISTER)
-//           },
-//           child: SvgPicture.asset(SVGImageConstants.instance.plus),
-//         ),
-//       ),
-//     );
-//   }
-
-//   AppBar appBar(BuildContext context, HomeViewModel viewModel) {
-//     return AppBar(
-//       title: Text(
-//         LocaleKeys.homeView_title.tr(),
-//         style: context.textTheme.headline5!.copyWith(
-//           color: context.colorScheme.primary,
-//         ),
-//       ),
-//       actions: [
-//         // CustomAvatarButton(
-//         //   onPressed: () => {},
-//         //   imageUrl:
-//         //       'https://media-exp1.licdn.com/dms/image/C4D03AQHxyy_o6txuKA/profile-displayphoto-shrink_200_200/0/1624642378736?e=1645660800&v=beta&t=sj9tPRWg5MCwdt_rv3hL83zLA3z95fWrhtXFzQ1I_TI',
-//         // ),
-//         Observer(builder: (_) {
-//           return Stack(
-//             children: <Widget>[
-//               SizedBox(
-//                 width: context.dynamicWidth(0.15),
-//                 child: MaterialButton(
-//                   onPressed: () => {},
-//                   child: SvgPicture.asset(
-//                     SVGImageConstants.instance.bookmark,
-//                     color: context.colorScheme.primary,
-//                   ),
-//                   padding: context.paddingNormal,
-//                   shape: const CircleBorder(),
-//                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-//                 ),
-//               ),
-//               Positioned(
-//                 right: 15,
-//                 top: 13,
-//                 child: Container(
-//                   decoration: BoxDecoration(
-//                     color: context.colorScheme.primary,
-//                     borderRadius: BorderRadius.circular(6),
-//                     border: Border.all(color: context.colorScheme.surface),
-//                   ),
-//                   constraints: const BoxConstraints(
-//                     minWidth: 12,
-//                     minHeight: 12,
-//                   ),
-//                   child: Text(
-//                     viewModel
-//                         .getTotal(1, viewModel.homeResult.staticsOfMe)
-//                         .toString(),
-//                     style: TextStyle(
-//                       color: context.colorScheme.surface,
-//                       fontSize: 10,
-//                     ),
-//                     textAlign: TextAlign.center,
-//                   ),
-//                 ),
-//               )
-//             ],
-//           );
-//         }),
-//       ],
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return BaseView<HomeViewModel>(
+      viewModel: HomeViewModel(),
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
+      onPageBuilder: (BuildContext context, HomeViewModel viewModel) =>
+          Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/image/home_background.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Container(
+            width: context.width,
+            height: context.height,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    padding: context.horizontalPaddingLow * 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: context.height * 0.1,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              LocaleKeys.homeView_carbonValue.tr(),
+                              style: context.textTheme.headline4!.copyWith(
+                                color: context.colorScheme.background,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              '5200 CO2 ',
+                              style: context.textTheme.headline4!.copyWith(
+                                color: context.colorScheme.background,
+                              ),
+                            ),
+                            SvgPicture.asset(
+                                SVGImageConstants.instance.trending_down)
+                          ],
+                        ),
+                        // SizedBox(
+                        //   height: context.width * 0.05,
+                        // ),
+                        // Container(
+                        //   decoration: BoxDecoration(
+                        //       color: context.colorScheme.background,
+                        //       borderRadius: BorderRadius.circular(35)),
+                        //   width: context.width * 0.9,
+                        //   height: context.width * 0.8,
+                        // )
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Container(
+                    width: context.width,
+                    decoration: BoxDecoration(
+                        color: context.colorScheme.background,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          overflow: Overflow.visible,
+                          children: [
+                            Container(
+                              width: context.width,
+                              padding: context.paddingLow * 2,
+                              height: context.width * 0.6,
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 30,
+                                      offset: const Offset(
+                                          0, 0), // changes position of shadow
+                                    ),
+                                  ],
+                                  color: context.colorScheme.onError,
+                                  borderRadius: BorderRadius.circular(30)),
+                              // width: context.width * 0.9,
+                              // height: context.width * 0.8,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        LocaleKeys.homeView_today.tr(),
+                                        style: context.textTheme.headline4!
+                                            .copyWith(
+                                          color: context
+                                              .colorScheme.tertiaryContainer,
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        LocaleKeys.seeAll.tr(),
+                                        style: context.textTheme.button,
+                                      ),
+                                    ],
+                                  ),
+                                  Center(
+                                      child: SizedBox(
+                                    width: 450,
+                                    height: 180,
+                                    child: SfRadialGauge(axes: <RadialAxis>[
+                                      RadialAxis(
+                                          minimum: 0,
+                                          maximum: 100,
+                                          showLabels: false,
+                                          showTicks: false,
+                                          startAngle: 180,
+                                          endAngle: 0,
+                                          canScaleToFit: true,
+                                          radiusFactor: 1.3,
+                                          axisLineStyle: const AxisLineStyle(
+                                            thickness: 0.05,
+                                            color:
+                                                Color.fromARGB(30, 0, 169, 181),
+                                            thicknessUnit: GaugeSizeUnit.factor,
+                                          ),
+                                          pointers: <GaugePointer>[
+                                            RangePointer(
+                                              color:
+                                                  context.colorScheme.primary,
+                                              value: 44,
+                                              width: 0.08,
+                                              cornerStyle:
+                                                  CornerStyle.bothCurve,
+                                              sizeUnit: GaugeSizeUnit.factor,
+                                              enableAnimation: true,
+                                              animationDuration: 20,
+                                              animationType:
+                                                  AnimationType.linear,
+                                            )
+                                          ],
+                                          annotations: <GaugeAnnotation>[
+                                            GaugeAnnotation(
+                                                positionFactor: 0,
+                                                widget: Column(
+                                                  children: [
+                                                    Text(
+                                                      LocaleKeys
+                                                          .homeView_spendValue
+                                                          .tr(),
+                                                      style: context
+                                                          .textTheme.subtitle2!
+                                                          .copyWith(
+                                                              color: context
+                                                                  .colorScheme
+                                                                  .tertiaryContainer),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          SvgPicture.asset(
+                                                              SVGImageConstants
+                                                                  .instance
+                                                                  .flash),
+                                                          Text(
+                                                            '1200 Cal ',
+                                                            style: context
+                                                                .textTheme
+                                                                .headline4!
+                                                                .copyWith(
+                                                                    color: context
+                                                                        .colorScheme
+                                                                        .primary),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Normal 2400 Cal ',
+                                                      style: context
+                                                          .textTheme.bodyLarge,
+                                                    ),
+                                                  ],
+                                                ))
+                                          ])
+                                    ]),
+                                  )),
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                                left: (context.width / 2) / 12,
+                                bottom: -30,
+                                child: SizedBox(
+                                    width: context.width * 0.9,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(25.0),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color:
+                                                  Colors.grey.withOpacity(0.5),
+                                              spreadRadius: 5,
+                                              blurRadius: 23,
+                                              offset: const Offset(0,
+                                                  0), // changes position of shadow
+                                            ),
+                                          ]),
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(
+                                            Icons.search,
+                                            color: context.colorScheme
+                                                .onTertiaryContainer,
+                                          ),
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: context.lowValue,
+                                              vertical:
+                                                  context.mediumValue / 1.7),
+                                          hintText:
+                                              LocaleKeys.homeView_findFood.tr(),
+                                          filled: true,
+                                          fillColor: Colors.white,
+                                          disabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                          ),
+                                        ),
+                                      ),
+                                    )))
+                          ],
+                        ),
+                        Container(
+                          padding: context.horizontalPaddingLow * 2,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: context.width * 0.13,
+                              ),
+                              Text(
+                                LocaleKeys.homeView_spendingHistory.tr(),
+                                style: context.textTheme.headline4!.copyWith(
+                                  color: context.colorScheme.tertiaryContainer,
+                                ),
+                              ),
+                              SizedBox(
+                                width: context.width,
+                                height: context.height * 0.088,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                    itemCount: viewModel.tabs.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Observer(builder: (_) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                viewModel.selectedIndex = index;
+                                              },
+                                              child: Padding(
+                                                padding: EdgeInsets.all(
+                                                    context.width * 0.05),
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      viewModel.tabs[index]
+                                                          .toString(),
+                                                      style: context
+                                                          .textTheme.subtitle2!
+                                                          .copyWith(
+                                                        color: index ==
+                                                                viewModel
+                                                                    .selectedIndex
+                                                            ? context
+                                                                .colorScheme
+                                                                .secondary
+                                                            : context
+                                                                .colorScheme
+                                                                .onTertiaryContainer,
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: context.height *
+                                                          0.009,
+                                                    ),
+                                                    index ==
+                                                            viewModel
+                                                                .selectedIndex
+                                                        ? CircleAvatar(
+                                                            radius: 4,
+                                                            backgroundColor:
+                                                                context
+                                                                    .colorScheme
+                                                                    .secondary,
+                                                          )
+                                                        : const SizedBox()
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          })
+                                        ],
+                                      );
+                                    }),
+                              ),
+                              SizedBox(
+                                width: context.width,
+                                height: context.height * 0.25,
+                                child: viewModel.data
+                                    ? ListView.builder(
+                                        shrinkWrap: true,
+                                        padding: EdgeInsets.zero,
+                                        itemCount: viewModel.feedData.length,
+                                        itemBuilder: (context, index) {
+                                          return ListTile(
+                                            leading: Container(
+                                              width: 50,
+                                              height: 50,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(7),
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                      viewModel.feedData[index]
+                                                              ['photo']
+                                                          .toString(),
+                                                    ),
+                                                    fit: BoxFit.cover),
+                                              ),
+                                            ),
+                                            title: Text(
+                                              '${viewModel.feedData[index]['name']} Adet ${viewModel.feedData[index]['kcal']}',
+                                              style: context
+                                                  .textTheme.subtitle2!
+                                                  .copyWith(
+                                                      color: context.colorScheme
+                                                          .tertiaryContainer,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                            ),
+                                            subtitle: Text(
+                                              viewModel.feedData[index]['time']
+                                                  .toString(),
+                                            ),
+                                            trailing: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                SizedBox(
+                                                  width: context.width * 0.15,
+                                                  child: Row(
+                                                    children: [
+                                                      SvgPicture.asset(
+                                                        SVGImageConstants
+                                                            .instance.flash,
+                                                        color: context
+                                                            .colorScheme
+                                                            .onTertiaryContainer,
+                                                      ),
+                                                      Text(
+                                                          '${viewModel.feedData[index]['kcal']}')
+                                                    ],
+                                                  ),
+                                                ),
+                                                Text(viewModel.feedData[index]
+                                                        ['co2']
+                                                    .toString()),
+                                              ],
+                                            ),
+                                          );
+                                        })
+                                    : Container(
+                                        child: Column(
+                                          children: [
+                                            SvgPicture.asset(SVGImageConstants
+                                                .instance.salad),
+                                            Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: context.lowValue),
+                                              child: Text(
+                                                LocaleKeys
+                                                    .homeView_noRegisteredFoodFound
+                                                    .tr(),
+                                                style:
+                                                    context.textTheme.subtitle2,
+                                              ),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text(LocaleKeys
+                                                  .homeView_createNow
+                                                  .tr()),
+                                              style: ButtonStyle(
+                                                  padding:
+                                                      MaterialStateProperty.all(
+                                                          EdgeInsets.all(
+                                                              context.lowValue *
+                                                                  1.4)),
+                                                  elevation:
+                                                      MaterialStateProperty.all(
+                                                          1),
+                                                  backgroundColor:
+                                                      MaterialStateProperty.all(
+                                                          Color(0x00C5CEE0))),
+                                            )
+                                            // ElevatedButton.styleFrom()
+                                          ],
+                                        ),
+                                      ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

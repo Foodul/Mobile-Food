@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:foodul/core/base/viewmodel/base_view_model.dart';
+import '../../../core/base/viewmodel/base_view_model.dart';
 import 'package:mobx/mobx.dart';
 part 'camera_view_model.g.dart';
 
