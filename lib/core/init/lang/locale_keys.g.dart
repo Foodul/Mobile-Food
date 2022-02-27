@@ -3,5 +3,6 @@
 abstract class  LocaleKeys {
   static const Tips_title = 'Tips.title';
   static const Tips = 'Tips';
+  static const TipsDetail = 'TipsDetail';
 
 }

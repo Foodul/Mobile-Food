@@ -15,20 +15,25 @@ class AlertCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.only(
+        left: context.normalValue,
+        right: context.normalValue,
+        top: context.lowValue,
+        bottom: context.normalValue,
+      ),
       child: Container(
-        decoration: BoxDecoration(
-          color: Color(0xffFFEEC3),
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+        decoration: const BoxDecoration(
+          color: const Color(0xffFFEEC3),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
         padding: EdgeInsets.symmetric(
           horizontal: context.lowValue,
-          vertical: context.mediumValue,
+          vertical: context.normalValue,
         ),
         child: Row(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xffF9B50F),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),

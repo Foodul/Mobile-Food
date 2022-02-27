@@ -19,6 +19,9 @@ class ImageConstants {
   final limon = 'limon'.toPNG;
   final orange = 'orange'.toPNG;
   final waste = 'waste'.toPNG;
+  final vegetables = 'vegetables'.toPNG;
+  final krep = 'krep'.toPNG;
+  final beef = 'beef'.toPNG;
 }
 
 extension ImageConstantsExtension on String {

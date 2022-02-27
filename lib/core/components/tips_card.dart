@@ -20,7 +20,10 @@ class TipsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.normalValue,
+        vertical: context.lowValue,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +37,7 @@ class TipsCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: context.dynamicWidth(0.05)),
+          SizedBox(height: context.dynamicWidth(0.03)),
           Text(
             text,
             style: context.textTheme.headline6!.copyWith(
@@ -49,13 +52,14 @@ class TipsCard extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'Devamını Oku',
+                  'View More',
                   style: context.textTheme.headline6!.copyWith(
                     fontSize: 14,
                     color: context.colorScheme.tertiaryContainer,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+                SizedBox(width: context.dynamicWidth(0.02)),
                 SvgPicture.asset(SVGImageConstants.instance.arrowRight),
               ],
             ),

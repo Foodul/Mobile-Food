@@ -11,6 +11,9 @@ class SVGImageConstants {
   final amblemLogo = 'amblemLogo'.toSVG;
   final lightbulb = 'lightbulb'.toSVG;
   final arrowRight = 'arrow-right'.toSVG;
+  final like = 'like'.toSVG;
+  final share = 'share'.toSVG;
+  final chevronleft = 'chevronleft'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {

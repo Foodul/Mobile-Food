@@ -23,14 +23,13 @@ abstract class _TipsViewModelBase with Store, BaseViewModel {
       // onTab: () {}
     ),
     TipsModel(
-      tipsImage: ImageConstants.instance.waste,
-      title: 'You Bought It, You Eat It – Don’t Waste Food',
-      text:
-          'More than 4.5 million tons of food is wasted every year in the U.S. – about 25%',
+      tipsImage: ImageConstants.instance.limon,
+      title: 'Make “Seasonal and Regional” Your Food Mantra',
+      text: 'Strawberries in winter in Vermont? No problem! We’ve become',
       // onTab: () {}
     ),
     TipsModel(
-      tipsImage: ImageConstants.instance.waste,
+      tipsImage: ImageConstants.instance.orange,
       title: 'You Bought It, You Eat It – Don’t Waste Food',
       text:
           'More than 4.5 million tons of food is wasted every year in the U.S. – about 25%',

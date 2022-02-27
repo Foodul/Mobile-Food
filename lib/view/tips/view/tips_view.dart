@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodul/core/base/view/base_widget.dart';
+import 'package:foodul/core/constants/navigation/navigation_constants.dart';
 import 'package:foodul/view/tips/viewmodel/tips_view_model.dart';
 import 'package:kartal/kartal.dart';
 
@@ -24,40 +25,58 @@ class TipsView extends StatelessWidget {
         model.setContext(context);
         model.init();
       },
-      onPageBuilder: (BuildContext context, TipsViewModel viewModel) =>
+      onPageBuilder: (BuildContext context, TipsViewModel viewModel) => Stack(
+        children: [
           Scaffold(
-        backgroundColor: context.colorScheme.background,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: context.colorScheme.background,
-          title: Text(
-            LocaleKeys.Tips_title.tr(),
-            style: context.textTheme.headline5!
-                .copyWith(color: context.colorScheme.tertiaryContainer),
-          ),
-        ),
-        body: Center(
-          child: ListView(
-            children: [
-              AlertCard(
-                lightbulb: SVGImageConstants.instance.lightbulb,
-                alertText:
-                    'Dondurma tüketerek ....  yapmak kadar karbon tükemi yapmaktasınız.',
-              ),
-              ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: viewModel.data.length,
-                itemBuilder: (_, i) => TipsCard(
-                  onTap: () {},
-                  text: viewModel.data[i].text!,
-                  tipsImage: viewModel.data[i].tipsImage!,
-                  title: viewModel.data[i].title!,
+            // extendBodyBehindAppBar: true,
+            backgroundColor: context.colorScheme.background,
+            body: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    alignment: Alignment.topRight,
+                    image: AssetImage(ImageConstants.instance.vegetables),
+                    // fit: BoxFit.cover,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    AppBar(
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
+                      title: Text(
+                        LocaleKeys.Tips_title.tr(),
+                        style: context.textTheme.headline5!.copyWith(
+                            color: context.colorScheme.tertiaryContainer),
+                      ),
+                    ),
+                    AlertCard(
+                      lightbulb: SVGImageConstants.instance.lightbulb,
+                      alertText:
+                          'By consuming ice cream, you consume as much carbon as driving a car for 5 hours.',
+                    ),
+                    ListView.builder(
+                      padding: EdgeInsets.zero,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: viewModel.data.length,
+                      itemBuilder: (_, i) => TipsCard(
+                        onTap: () {
+                          viewModel.navigation.navigateToPage(
+                              path: NavigationConstants.TIPS_DETAIL);
+                        },
+                        text: viewModel.data[i].text!,
+                        tipsImage: viewModel.data[i].tipsImage!,
+                        title: viewModel.data[i].title!,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
