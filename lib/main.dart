@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/categories/view/categories_view.dart';
+import 'package:foodul/view/category_details/view/category_detail.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
 import 'package:foodul/view/tips/view/tips_view.dart';

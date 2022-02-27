@@ -7,5 +7,7 @@ class NavigationConstants {
   static const ON_BOARD = '/onBoard';
   static const HOME = '/home';
   static const BOTTOM_TAB = '/bottomtab';
+  static const CATEGORIES = '/categories';
+  static const CATEGORIES_DETAIL = '/categoriesDetail';
   static const TIPS_DETAIL = '/tipsDetail';
 }

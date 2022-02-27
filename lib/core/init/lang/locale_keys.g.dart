@@ -27,6 +27,8 @@ abstract class LocaleKeys {
   static const CategoriesView_findFood = 'CategoriesView.findFood';
   static const CategoriesView_categories = 'CategoriesView.categories';
   static const CategoriesView = 'CategoriesView';
+  static const CategoryDetail_foods = 'CategoryDetail.foods';
+  static const CategoryDetail = 'CategoryDetail';
   static const Login_forgotPassword = 'Login.forgotPassword';
   static const Login_signIn = 'Login.signIn';
   static const Login_pleaseProvideEmail = 'Login.pleaseProvideEmail';
