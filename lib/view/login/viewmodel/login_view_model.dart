@@ -33,6 +33,5 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   submit() async {
     final response = await auth.signInWithEmailAndPassword(
         email: 'test@test.com', password: 'test123');
-    inspect(response);
   }
 }

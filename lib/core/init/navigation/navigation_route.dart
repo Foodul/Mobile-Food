@@ -1,4 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:foodul/view/categories/model/categories_model.dart';
+import 'package:foodul/view/categories/view/categories_view.dart';
+import 'package:foodul/view/category_details/model/category_detail_model.dart';
+import 'package:foodul/view/category_details/view/category_detail.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
 import '../../../view/splash/view/splash_view.dart';
@@ -39,6 +45,13 @@ class NavigationRoute {
         return normalNavigate(const LoginView());
       case NavigationConstants.HOME:
         return normalNavigate(const HomeView());
+      case NavigationConstants.CATEGORIES:
+        return normalNavigate(const CategoriesView());
+      case NavigationConstants.CATEGORIES_DETAIL:
+        final model = args.arguments as CategoriesModel;
+        return normalNavigate(CategoryDetailView(
+          data: model,
+        ));
       // case NavigationConstants.TEST:
       //   return normalNavigate(const TestView());
       // case NavigationConstants.ON_BOARD:

@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:foodul/core/constants/navigation/navigation_constants.dart';
 import 'package:foodul/core/init/lang/locale_keys.g.dart';
+import 'package:foodul/core/init/navigation/navigation_route.dart';
 import 'package:foodul/view/_product/widgets/cards/categories_card_widget.dart';
 import 'package:foodul/view/categories/viewmodel/categories_view_model.dart';
 import 'package:kartal/kartal.dart';
@@ -72,9 +74,17 @@ class CategoriesView extends StatelessWidget {
                       mainAxisSpacing: 20),
                   itemCount: viewModel.categories.length,
                   itemBuilder: (BuildContext ctx, index) {
-                    return CategoriesCard(
-                        imageUrl: viewModel.categories[index].image.toString(),
-                        title: viewModel.categories[index].title.toString());
+                    return GestureDetector(
+                      onTap: () {
+                        viewModel.navigation.navigateToPage(
+                            path: NavigationConstants.CATEGORIES_DETAIL,
+                            data: viewModel.categories[index]);
+                      },
+                      child: CategoriesCard(
+                          imageUrl:
+                              viewModel.categories[index].image.toString(),
+                          title: viewModel.categories[index].title.toString()),
+                    );
                   }),
             ),
           ]),

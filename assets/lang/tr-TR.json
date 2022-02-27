@@ -25,6 +25,9 @@
         "categories": "Kategoriler"
         
     },
+    "CategoryDetail": {
+    "foods": "Gıdalar"
+    },
     "Login": {
         "forgotPassword": "Şifremi unuttum ?",
         "signIn": "Giriş Yap",
