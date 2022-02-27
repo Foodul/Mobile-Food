@@ -25,6 +25,10 @@ class ImageConstants {
   final banana = 'banana'.toPNG;
   final profil = 'profil'.toPNG;
   final profilIcon = 'profil_icon'.toPNG;
+
+  final onBoard1 = 'onBoard1'.toPNG;
+  final onBoard2 = 'onBoard2'.toPNG;
+  final onBoard3 = 'onBoard3'.toPNG;
 }
 
 extension ImageConstantsExtension on String {

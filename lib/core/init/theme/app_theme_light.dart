@@ -88,10 +88,14 @@ class AppThemeLight extends AppTheme {
   OutlinedButtonThemeData get outlinedButtonThemeData =>
       OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          primary: _appColorScheme.primary,
+          primary: _appColorScheme.onTertiary,
           textStyle: textTheme.button,
-          side: const BorderSide(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          side: BorderSide(
             width: 2,
+            color: _appColorScheme.onTertiary,
           ),
         ),
       );
@@ -179,7 +183,6 @@ class AppThemeLight extends AppTheme {
       onTertiary: Color(0xFF5E6375), //text / grey
       surfaceVariant: Color(0xFFC5CEE0),
       brightness: Brightness.light,
-      
     );
   }
 }
