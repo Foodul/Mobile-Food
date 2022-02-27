@@ -74,9 +74,10 @@ class BottomTabView extends StatelessWidget {
                               child: SvgPicture.asset(
                                 SVGImageConstants.instance.qrcodeIcon,
                                 colorBlendMode: BlendMode.srcATop,
-                                color: viewModel.tabIndex == 2
-                                    ? context.colorScheme.surface
-                                    : context.colorScheme.onTertiaryContainer,
+                                color: Colors.white,
+                                // color: viewModel.tabIndex == 2
+                                //     ? context.colorScheme.surface
+                                //     : context.colorScheme.onTertiaryContainer,
                               ),
                             ),
                             label: '',

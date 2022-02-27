@@ -39,18 +39,12 @@ mixin _$BottomTabViewModel on _BottomTabViewModelBase, Store {
     });
   }
 
-  final _$_BottomTabViewModelBaseActionController =
-      ActionController(name: '_BottomTabViewModelBase');
+  final _$changeTabIndexAsyncAction =
+      AsyncAction('_BottomTabViewModelBase.changeTabIndex');
 
   @override
-  void changeTabIndex(dynamic index) {
-    final _$actionInfo = _$_BottomTabViewModelBaseActionController.startAction(
-        name: '_BottomTabViewModelBase.changeTabIndex');
-    try {
-      return super.changeTabIndex(index);
-    } finally {
-      _$_BottomTabViewModelBaseActionController.endAction(_$actionInfo);
-    }
+  Future<void> changeTabIndex(dynamic index) {
+    return _$changeTabIndexAsyncAction.run(() => super.changeTabIndex(index));
   }
 
   @override
