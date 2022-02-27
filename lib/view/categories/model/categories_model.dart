@@ -7,10 +7,8 @@ part 'categories_model.g.dart';
 class CategoriesModel extends INetworkModel<CategoriesModel> {
   String? image;
   String? title;
-  CategoriesModel({
-    this.image,
-    this.title,
-  });
+  List<CategoryDetails>? details;
+  CategoriesModel({this.image, this.title, this.details});
 
   @override
   CategoriesModel fromJson(Map<String, dynamic> json) {
@@ -20,5 +18,29 @@ class CategoriesModel extends INetworkModel<CategoriesModel> {
   @override
   Map<String, dynamic> toJson() {
     return _$CategoriesModelToJson(this);
+  }
+}
+
+@JsonSerializable()
+class CategoryDetails extends INetworkModel<CategoryDetails> {
+  String? title;
+  String? image;
+  CategoryDetails({
+    this.title,
+    this.image,
+  });
+
+  @override
+  CategoryDetails fromJson(Map<String, dynamic> json) {
+    return _$CategoryDetailsFromJson(json);
+  }
+
+  factory CategoryDetails.fromJson(Map<String, dynamic> json) {
+    return _$CategoryDetailsFromJson(json);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CategoryDetailsToJson(this);
   }
 }

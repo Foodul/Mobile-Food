@@ -1,28 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:foodul/view/categories/model/categories_model.dart';
+import 'package:foodul/view/categories/view/categories_view.dart';
+import 'package:foodul/view/category_details/model/category_detail_model.dart';
+import 'package:foodul/view/category_details/view/category_detail.dart';
 import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
 import 'package:foodul/view/onboard/view/onboard_view.dart';
 import '../../../view/splash/view/splash_view.dart';
-// import 'package:oneri_sistemi_mobile/view/profil_edit/view/profil_edit_view.dart';
-// import 'package:oneri_sistemi_mobile/view/profile/view/profile_view.dart';
-// import 'package:oneri_sistemi_mobile/view/report/view/report_view.dart';
-// import 'package:oneri_sistemi_mobile/view/change_password/view/change_password_view.dart';
-// import '../../../view/similar_suggestion/model/suggest_create_model.dart';
-// import '../../../view/suggestion_control/model/suggestion_control_model.dart';
-// import '../../../view/suggestion_control/view/suggestion_control_view.dart';
-// import '../../../view/change_password/view/change_password_view.dart';
-// import '../../../view/home/view/home_view.dart';
-// import '../../../view/similar_suggestion/view/similar_suggestion_view.dart';
-// import '../../../view/suggestion_detail/view/suggestion_detail_view.dart';
-// import '../../../view/assignment/view/assignment_view.dart';
-// import '../../../view/form/view/form_view.dart';
-// import '../../../view/bottomtab/view/bottom_tab_view.dart';
-// import '../../../view/errors/something_went_wrong_view.dart';
-// import '../../../view/login/view/login_view.dart';
-// import '../../../view/onboard/onboard_view.dart';
-// import '../../../view/splash/view/splash_view.dart';
-// import '../../../view/suggestion_register/view/suggestion_register_view.dart';
 import '../../../view/test/view/test_view.dart';
 import '../../../view/tips_detail/view/tips_detail_view.dart';
 import '../../components/card/not_found_navigation_widget.dart';
@@ -44,6 +31,13 @@ class NavigationRoute {
         return normalNavigate(const TipsDetailView());
       case NavigationConstants.HOME:
         return normalNavigate(const HomeView());
+      case NavigationConstants.CATEGORIES:
+        return normalNavigate(const CategoriesView());
+      case NavigationConstants.CATEGORIES_DETAIL:
+        final model = args.arguments as CategoriesModel;
+        return normalNavigate(CategoryDetailView(
+          data: model,
+        ));
       case NavigationConstants.BOTTOM_TAB:
         return normalNavigate(const BottomTabView());
       case NavigationConstants.ON_BOARD:

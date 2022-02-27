@@ -29,6 +29,9 @@
         "title": "",
         "subtitle": ""
     },
+    "CategoryDetail": {
+        "foods": "Foods"
+        },
     "Login": {
         "forgotPassword": "Forgot password ?",
         "signIn": "Sing In",
