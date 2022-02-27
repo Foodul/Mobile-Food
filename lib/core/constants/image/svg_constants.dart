@@ -9,6 +9,9 @@ class SVGImageConstants {
   /// final example = 'example'.toSVG;
   final logo = 'logo'.toSVG;
   final amblemLogo = 'amblemLogo'.toSVG;
+  final trending_down = 'trending-down'.toSVG;
+  final flash = 'flash'.toSVG;
+  final salad = 'salad'.toSVG;
   final gift = 'gift'.toSVG;
 }
 

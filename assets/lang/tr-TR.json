@@ -6,32 +6,24 @@
     "tryAgain": "Tekrar dene",
     "seeAll": "Tümünü gör",
     "homeView": {
-        "title": "Ana sayfa",
-        "hiMessage": "Merhaba",
-        "suggestions": "Öneriler",
-        "tabs": {
-            "mySuggestions": "Önerilerim",
-            "processOwnership": "Süreç Sorumluluğu",
-            "solutionOwnership": "Çözüm Sorumluluğu"
-        },
-        "statuDescs": {
-            "rejected": "Reddedilmiş",
-            "draft": "Taslak",
-            "newSuggestion": "Yeni Öneri",
-            "assigned": "Atanmış",
-            "inProgress": "Çalışılıyor",
-            "waitsControl": "Kontrol Bekliyor",
-            "overdue": "Gecikmiş",
-            "inRevision": "Revizede",
-            "completed": "Tamamlandı"
-        },
-        "suggestionCount": "Toplamda @count öneri oluşturuldu ve @point puan kazanıldı!",
-        "suggestionInfoCardTitle": "Daha fazla puan kazanmak için önerilerinizi bizle paylaşın.",
-        "suggestionInfoCardButton": "Öneri Paylaş"
+        "carbonValue": "Karbon Değeri",
+        "spendValue": "Harcanan Değer",
+        "spendingHistory": "Harcama Geçmişi",
+        "createNow": "Hemen Oluştur",
+        "findFood": "Gıda Ara",
+        "noRegisteredFoodFound": "Kayıtlı gıda bulunamadı",
+        "today": "Bugün",
+        "thisWeek": "Bu Hafta"
     },
     "Onboard": {
-        "title": "Kurumsal\n Öneri Sistemi",
-        "subtitle": "Şirketin gelişiminde katkıda bulunun"
+        "title": "",
+        "subtitle": ""
+    },
+    "CategoriesView": {
+        "find": "Arama",
+        "findFood": "Gıda Ara",
+        "categories": "Kategoriler"
+        
     },
     "Login": {
         "forgotPassword": "Şifremi unuttum ?",
@@ -39,47 +31,6 @@
         "pleaseProvideEmail": "Lütfen geçerli bir e-posta giriniz",
         "fieldRequired": "Bu alan geçerli",
         "passwordValidation": "Şifre 8 ile 14 karakter arasında olmalıdır."
-    },
-    "SuggestionDetail": {
-        "comments": "Yorumlar",
-        "comment": "yorum",
-        "suggestionView": "Öneri Görüntüle",
-        "suggestionNumber": "Öneri Numarası",
-        "postYourComment": "Yorumunuzu yayınlayın",
-        "contactInfo": "İletişim Bilgileri",
-        "phone": "Cep Telefonu",
-        "mail": "Mail",
-        "suggestionPoint": "Öneri Puanı",
-        "seeReason": "Sebebi Gör",
-        "similarSuggestions": "Benzer Öneriler",
-        "sendToRevision": "Revize Talep Et",
-        "reviseSuggestion": "Öneriyi Gözden Geçir",
-        "changeProcessOwner": "Süreç Sorumluluğunu Değiştir",
-        "rejectSuggestion": "Öneriyi Reddet",
-        "assignSuggestion": "Öneriyi Onayla Ata",
-        "addDeadline": "Termin Tarihi Ver",
-        "addDeadlineAgain": "Tekrar Termin Tarihi Ver",
-        "solutionOwnerReject": "Çözüm Sorumluluğu Değişim Talebi",
-        "sendToControl": "Kontrole Gönder",
-        "completeSuggestion": "Öneriyi Tamamla",
-        "reviseTitle": "Önerinizi gözden geçirin",
-        "reviseDescription": "Önerinizi süreç sahibinin isteği yönünde gözden geçirip tekrar yollayınız.",
-        "revisionReason":"Düzenleme Sebebi",  
-        "changeReason": "Çözüm sorumlusu değişim talebi sebebi",
-        "processOwnerActionsTitle": "Lütfen aksiyon seçin",
-        "processOwnerActionsDesc": "Öneriye revize talebi oluşturabilir, başka sürece atayabilir, reddedebilir, veya çözüm sorumlusuna atayabilirsiniz.",
-        "solutionOwnerActionsTitle": "Lütfen aksiyon seçin",
-        "solutionOwnerActionsDesc": "Öneriye başka çözüm sorumlusu atama talebi oluşturabilir, veya termin tarihi verebilirsiniz.",
-        "completeSuggestionTitle": "Lütfen öneriyi tamamlayın",
-        "completeSuggestionDesc": "Lütfen son kontrollerinizi yapın ve lütfen öneriyi tamamlayın.",
-        "sendControlTitle": "Kontrole gönderin",
-        "sendControlDesc": "Lütfen son kontrollerinizi yapın ve öneriyi onaylaması için süreç sourmlusuna kontrole gönderin.",
-        "enterReason": "Sebep giriniz",
-        "enterReasonAndWorkflow": "Sebep giriniz ve süreç seçiniz",
-        "enterReasonRevision": "Lütfen revizyon talebinizin sebebini giriniz!",
-        "enterReasonChangeProcess": "Lütfen süreç sahipliği değişikliğinin sebebini girin ve yeni süreç seçiniz!",
-        "enterReasonReject": "Lütfen öneriyi reddetme sebebinizi girin!",
-        "enterReasonChangeSolution": "Lütfen çözüm sahipliği değişikliği talebinin sebebini girin!"
     },
     "Button": {
         "login": "Giriş Yap",
@@ -91,7 +42,6 @@
         "AddFileOrImage": "Dosya ya da görsel ekle",
         "remove": "Remove",
         "clear": "Clear",
-        "confirmFinish": "Onayla Bitir",
         "edit": "Düzenle",
         "back":"Geri Dön",
         "approve": "Onayla",
@@ -119,30 +69,7 @@
         "title": "Başlık",
         "description": "Açıklama",
         "category": "Kategori",
-        "process": "Süreç",
-        "constitutivePerson": "Öneri Sahibi",
-        "suggestionType": "Öneri Tipi",
-        "situation": "Durumu",
-        "date": "Tarih",
-        "unassigned": "Atanmamış",
-        "processOwner": "Süreç Sorumlusu",
-        "solutionOwner": "Çözüm Sorumlusu"
-    },
-    "suggestions": {
-        "title": "Öneriler",
-        "search": "Öneri ara...",
-        "notFound": "Bulunamadı",
-        "notFoundDesc": "Öneri bulunamadı. Lütfen öneri girerek katkıda bulun!",
-        "notFoundDescSearch": "Aradığınız kriterlerde öneri bulunamadı",
-        "startDate": "Başlangıç Tarihi",
-        "endDate": "Bitiş Tarihi",
-        "createDate":"Oluşturulma",
-        "deadLine":"Termin"
-    },
-    "SuggestionRegister": {
-        "title": "Yeni Öneri Girişi",
-        "fileUpload": "Dosya Yükle",
-        "imageUpload": "Resim Yükle"
+        "date": "Tarih"
     },
     "ValidateMessage": {
         "required": "Bu alan zorunludur.",
@@ -152,7 +79,6 @@
     "notifications": {
         "title": "Bildirimler",
         "doNotForget": "Unutmayın!",
-        "winOnComplete": "Önerileriniz tamamlandıkça puan kazanacaksınız.",
         "seeNow": "Görüntüle",
         "year": "yıl önce",
         "years": "yıl önce",
@@ -168,41 +94,13 @@
         "minutes": "dakika önce",
         "now": "Şimdi"
     },
-    "SuggestionSimilar":{
-        "title":"Benzer Fikirler",
-        "infoTextTitleSearching":"Benzer fikirler aranıyor...",
-        "infoTextTitle":" @length adet benzer fikir bulunmaktadır.",
-        "infoTextTitleNF":"Benzer fikirler bulunamadı.",
-        "infoTextSubtitle":"Fikrin aşağıda bulunan fikirlerden farklı mı?",
-        "confirmDiffrent": "Farklı Onayla",
-        "cancelSuggestion": "Öneriyi İptal Et"
-    },
-    "SuggestionDeadline" : {
-        "resolutionDate": "Çözüm Tarihi",
-        "suggestionResolutionTitle": "Önerinin çözümünü tamamlamak için",
-        "pleaseProjectedDate": "lütfen öngörülen bitiş tarihini seçiniz."
-    },
     "profile": {
         "title": "Profil",
-        "totalPoints": "Toplam Puan",
-        "totalSuggestions": "Toplam Öneri",
-        "approvedSuggestions": "Onaylı Öneri",
-        "suggestionReports": "Öneri Raporları",
         "language": "Dil Seçenekleri",
         "changePassword": "Şifre Değiştir",
-        "whatis": "Öneri Sistemi Nedir?",
         "help": "Destek",
         "logout": "Çıkış Yap"
-    },
-    "FormView": {
-        "title": "Anket",
-        "desc": "@name kullanıcısının @suggetion konu başlıklı önerisinin değerlendirmesini tamamladıktan sonra önerisine onay verebilirsiniz. Dolduracağınız bu test doğrultusunda kişi ödül kazanma hakkı kazanacaktır."
-    },
-    "AssignmentView": {
-        "title":"Atama",
-        "desc":"Öneri için çözüm sorumlusu atayınız.",
-        "footnote":"Öneriyi çözümlemekte görevli olabilecek kişiyi seçiniz."
-    },
+    }, 
     "ProfilEdit": {
         "title": "Profil Düzenle"
     },
@@ -211,18 +109,5 @@
         "oldPass": "Eski şifre",
         "newPass": "Yeni Şifre",
         "newPassRepeat": "Yeni Şifre Tekrar"
-    },
-    "SuggestionControl":{
-        "suggestionControl": "Öneri Kontrol",
-        "detailOfTheSuggestionCreated": "Oluşturulan Önerinin Detayı",
-        "process": "Süreç"
-    },
-    "ReportView":{
-        "title":"Raporlar",
-        "suggestionProcessChart":"Öneri Süreç Grafiği",
-        "suggestionStatusChart":"Öneri Durum Grafiği",
-        "suggestionAnnualSuccessChart":"Yıllık Başarı Grafiği",
-        "suggestionsCount":"Öneri Sayısı",
-        "total":"Toplam"
     }
 }

@@ -6,32 +6,23 @@
     "tryAgain": "Try again",
     "seeAll": "See all",
     "homeView": {
-        "title": "Home Page",
-        "hiMessage": "Hello",
-        "suggestions": "Suggestions",
-        "tabs": {
-            "mySuggestions": "My Suggestions",
-            "processOwnership": "Process Ownership",
-            "solutionOwnership": "Solution Ownership"
-        },
-        "statuDescs": {
-            "rejected": "Rejected",
-            "draft": "Draft",
-            "newSuggestion": "New Suggestion",
-            "assigned": "Assigned",
-            "inProgress": "In Progress",
-            "waitsControl": "Waits Control",
-            "overdue": "Overdue",
-            "inRevision": "In Revision",
-            "completed": "Completed"
-        },
-        "suggestionCount": "In total, @count suggestions createad and @point points earned!",
-        "suggestionInfoCardTitle": "To earn more points, share your suggestions with us.",
-        "suggestionInfoCardButton": "Share Suggestions"
+        "carbonValue": "Carbon Value",
+        "spendValue": "Spend Value",
+        "spendingHistory": "Spending History",
+        "noRegisteredFoodFound": "No registered food found",
+        "today": "Today",
+        "findFood": "Find Food",
+        "thisWeek": "This week"
+
+    },
+    "CategoriesView": {
+    "find": "Find",
+    "findFood": "Find Food",
+    "categories": "Categories"
     },
     "Onboard": {
-        "title": "Corporate\nSuggestion System",
-        "subtitle": "Contribute to the development of the company"
+        "title": "",
+        "subtitle": ""
     },
     "Login": {
         "forgotPassword": "Forgot password ?",
@@ -39,46 +30,6 @@
         "pleaseProvideEmail": "Please provide a valid email",
         "fieldRequired": "This field required",
         "passwordValidation": "Password should be 8 to 14 characters"
-    },
-    "SuggestionDetail": {
-        "comments": "Comments",
-        "comment": "comment",
-        "suggestionView": "Suggestion View",
-        "suggestionNumber": "Suggestion Number",
-        "postYourComment": "Post your comment...",
-        "contactInfo": "Contact Info",
-        "phone": "Phone",
-        "mail": "Mail",
-        "suggestionPoint": "Suggestion Point",
-        "seeReason": "See Reason",
-        "similarSuggestions": "Similar Suggestions",
-        "sendToRevision": "Request Revision",
-        "reviseSuggestion": "Revise Suggestion",
-        "changeProcessOwner": "Change Process Ownership",
-        "rejectSuggestion": "Reject Suggestion",
-        "assignSuggestion": "Confirm Suggestion and Assign",
-        "addDeadline": "Add Deadline",
-        "addDeadlineAgain": "Add Deadline Again",
-        "solutionOwnerReject": "Request Solution Owner Change",
-        "sendToControl": "Send to Control",
-        "completeSuggestion": "Complete Suggestion",
-        "reviseTitle": "Please revise your suggestion!",
-        "reviseDescription": "Revise your suggestion properly, based on the reason given by the precess owner.",
-        "revisionReason": "Revision Reason",
-        "changeReason": "Solution owner change request reason",
-        "processOwnerActionsTitle": "Please select action",
-        "processOwnerActionsDesc": "You can create a revision request for the suggestion, assign it to another process, reject it, and assign it to the solution owner.",
-        "solutionOwnerActionsTitle": "Please select action",
-        "soluitonOwnerActionsDesc": "You can create a request to assign another solution owner to the suggestion, or add a deadline.",
-        "completeSuggestionTitle": "Please complete suggestion",
-        "completeSuggestionDesc": "Please make your final controls and please complete the suggestion.",
-        "sendControlTitle": "Send to control",
-        "sendControlDesc": "Please do your final checks and send the suggestion to the process owner for approval.",
-        "enterReason": "Enter the reason",
-        "enterReasonRevision": "Please enter the reason for revision request!",
-        "enterReasonChangeProcess": "Please enter the reason for process ownership change and select new process!",
-        "enterReasonReject": "Please enter the reason for rejecting suggestion!",
-        "enterReasonChangeSolution": "Please enter the reason for solution ownership change request!"
     },
     "Button": {
         "login": "Login",
@@ -91,7 +42,6 @@
         "remove": "Remove",
         "clear": "Clear",
         "back": "Back",
-        "confirmFinish": "Confirm Finish",
         "edit": "Edit",
         "approve": "Approve",
         "change": "Change",
@@ -118,28 +68,7 @@
         "description": "Description",
         "category": "Category",
         "process": "Process",
-        "constitutivePerson": "Suggestion Owner",
-        "suggestionType": "Suggestion Type",
-        "situation": "Situation",
-        "date": "Date",
-        "processOwner": "Process Owner",
-        "solutionOwner": "Solution Owner"
-    },
-    "suggestions": {
-        "title": "Suggestions",
-        "search": "Search suggestion...",
-        "notFound": "Not Found",
-        "notFoundDesc": "Suggestions not found. Please contribute by creating suggestions!",
-        "notFoundDescSearch": "No suggestions were found according to your search criteria.",
-        "startDate": "Start Date",
-        "endDate": "End Date",
-        "createDate":"Create",
-        "deadLine":"Deadline"
-    },
-    "SuggestionRegister": {
-        "title": "Suggestion Register",
-        "fileUpload": "File Upload",
-        "imageUpload": "İmage Upload"
+        "date": "Date"
     },
     "ValidateMessage": {
         "required": "The field is required.",
@@ -149,7 +78,6 @@
     "notifications": {
         "title": "Notifications",
         "doNotForget": "Do not forget!",
-        "winOnComplete": "You will earn points as your suggestions are completed.",
         "seeNow": "See details",
         "year": "year ago",
         "years": "years ago",
@@ -165,40 +93,12 @@
         "minutes": "minutes ago",
         "now": "Just now"
     },
-    "SuggestionSimilar":{
-        "title":"Similar Ideas",
-        "infoTextTitleSearching":"The similar suggestions are searching...",
-        "infoTextTitle":"There are @length similar suggestions.",
-        "infoTextTitleNF":"There are no similar suggestions.",
-        "infoTextSubtitle":"Is your suggestion different from the suggestions below?",
-        "confirmDifferent": "Confirm Different",
-        "cancelSuggestion": "Cancel Suggestion"
-    },
-    "SuggestionDeadline" : {
-        "resolutionDate": "Resolution Date",
-        "suggestionResolutionTitle": "To complete the solution of the proposal",
-        "pleaseProjectedDate": "please select the projected end date."
-    },
     "profile": {
         "title": "Profile",
-        "totalPoints": "Total Points",
-        "totalSuggestions": "Total",
-        "approvedSuggestions": "Approved",
-        "suggestionReports": "Suggestion Reports",
         "language": "Language Preferences",
         "changePassword": "Change Password",
-        "whatis": "What is Öneri Sistemi?",
         "help": "Support",
         "logout": "Log out"
-    },
-    "FormView":{
-        "title": "Survey",
-        "desc":"After completing the evaluation of the proposal titled @suggestion created by @name, you can approve the proposal. In line with this test you will fill out person will be eligible to win prizes."
-    },
-    "AssignmentView": {
-        "title":"Assign",
-        "desc":"Assign a solution builder for the suggestion.",
-        "footnote":"Select the person who may be responsible for resolving the proposal."
     },
     "ProfilEdit": {
         "title": "Profil Edit"
@@ -208,18 +108,5 @@
         "oldPass": "Old Password",
         "newPass": "New Password",
         "newPassRepeat": "New Password Repeat"
-    },
-    "SuggestionControl":{
-        "suggestionControl": "Suggestion Control",
-        "detailOfTheSuggestionCreated": "Detail of the Suggestion Created",
-        "process": "Süreç"
-    },
-    "ReportView":{
-        "title":"Reports",
-        "suggestionProcessChart":"Suggestion Process Chart",
-        "suggestionStatusChart":"Suggestion Status Chart",
-        "suggestionAnnualSuccessChart":"Suggestion Annual Success Chart",
-        "suggestionsCount":"Suggesiton Count",
-        "total":"Total"
     }
 }
