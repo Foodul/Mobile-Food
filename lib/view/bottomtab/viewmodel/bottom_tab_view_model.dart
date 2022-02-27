@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:foodul/view/categories/view/categories_view.dart';
+import 'package:foodul/view/profil/view/profil_view.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/src/provider.dart';
 
@@ -33,10 +35,10 @@ abstract class _BottomTabViewModelBase with Store, BaseViewModel {
   @observable
   ObservableList<Widget> tabs = ObservableList.of([
     const HomeView(),
+    const CategoriesView(),
     const SizedBox(),
     const SizedBox(),
-    const SizedBox(),
-    const SizedBox(),
+    const ProfileView(),
   ]);
 
   // @action
