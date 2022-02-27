@@ -16,6 +16,8 @@ class ImageConstants {
   // final userPointBackground = 'user_point_background'.toPNG;
   // final personImage = 'personImage'.toPNG;
   final splashBG = 'splashBG'.toPNG;
+  final banana = 'banana'.toPNG;
+  final profil = 'profil'.toPNG;
 }
 
 extension ImageConstantsExtension on String {
