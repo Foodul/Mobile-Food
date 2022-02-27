@@ -15,9 +15,9 @@ abstract class _ProfilViewModelBase with Store, BaseViewModel {
   @override
   Future<void> init() async {
     pageviewController = PageController();
-    Future.delayed(Duration.zero, () {
-      changeTabSelect(2);
-    });
+    // Future.delayed(Duration.zero, () {
+    //   changeTabSelect(2);
+    // });
   }
 
   List tabs = ['CO2 İstatistiğim', "Kalori Alımlarım", "Arkadaşlarım"];

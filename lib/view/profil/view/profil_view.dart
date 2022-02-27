@@ -206,7 +206,7 @@ class ProfileView extends StatelessWidget {
                     Text(
                       'LV. ${(4 * total - index) - index * 2}',
                       style: context.textTheme.bodyText2!.copyWith(
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                           color: context.colorScheme.tertiary),
                     ),

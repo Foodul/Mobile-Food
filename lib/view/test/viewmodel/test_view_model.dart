@@ -35,7 +35,7 @@ abstract class _TestViewModelBase with Store, BaseViewModel {
     // isLoadingChange();
     final response = await testService.fetchExample();
 
-    showMessage(response);
+    // showMessage(response);
 
     // isLoadingChange();
   }
