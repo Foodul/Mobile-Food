@@ -54,7 +54,6 @@ dependencies:
   pedantic: ^1.11.1
   provider: ^6.0.0
   shared_preferences: ^2.0.7
-  tflite: ^1.1.2
   vexana: ^2.3.0
 
 dev_dependencies:

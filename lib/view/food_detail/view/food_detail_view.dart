@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:tflite/tflite.dart';
 
 import '../../../core/base/view/base_widget.dart';
 import '../viewmodel/food_detail_view_model.dart';
@@ -16,46 +15,11 @@ class FoodDetailView extends StatefulWidget {
 }
 
 class _FoodDetailViewState extends State<FoodDetailView> {
-  loadModel() async {
-    //this function loads our model
-    await Tflite.loadModel(
-        model: 'assets/model/model.tflite', labels: 'assets/model/labels.txt');
-  }
-
-  classifyImage(String path) async {
-    inspect(path);
-    //this function runs the model on the image
-    var output = await Tflite.runModelOnImage(
-      path: path,
-      numResults: 137, //the amout of categories our neural network can predict
-      threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5,
-      asynch: true,
-    );
-
-    inspect(output);
-    setState(() {
-      //   _output = output;
-      //   _loading = false;
-    });
-  }
-
-  @override
-  void initState() {
-    //initS is the first function that is executed by default when this class is called
-    super.initState();
-    print('init view');
-    loadModel().then((value) {
-      setState(() {});
-    });
-  }
-
   @override
   void dispose() {
     //dis function disposes and clears our memory
     super.dispose();
-    Tflite.close();
+    // Tflite.close();
   }
 
   @override
@@ -122,11 +86,6 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                       ),
                     ],
                   ),
-                  // padding: EdgeInsets.only(
-                  //   top: context.lowValue,
-                  //   // left: context.normalValue,
-                  //   // right: context.normalValue,
-                  // ),
                   child: Column(
                     children: [
                       SizedBox(height: context.lowValue),
@@ -137,17 +96,26 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                         color: Color(0xFFE2E6EC),
                       ),
                       Expanded(
-                        child: ListView(
-                          padding: EdgeInsets.zero,
-                          controller: myscrollController,
-                          children: [
-                            MaterialButton(
-                              onPressed: () {
-                                classifyImage(widget.filePath!);
-                              },
-                              child: Text('predict'),
-                            )
-                          ],
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: context.lowValue,
+                            left: context.normalValue,
+                            right: context.normalValue,
+                          ),
+                          child: ListView(
+                            padding: EdgeInsets.zero,
+                            controller: myscrollController,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    'Marul',
+                                    style: context.textTheme.headline5,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ],

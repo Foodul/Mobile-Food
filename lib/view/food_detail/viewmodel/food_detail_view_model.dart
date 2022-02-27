@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodul/core/base/viewmodel/base_view_model.dart';
 import 'package:mobx/mobx.dart';
-import 'package:tflite/tflite.dart';
+// import 'package:tflite_flutter/tflite_flutter.dart';
+// import 'package:tflite/tflite.dart';
 part 'food_detail_view_model.g.dart';
 
 class FoodDetailViewModel = _FoodDetailViewModelBase with _$FoodDetailViewModel;
@@ -37,28 +38,38 @@ abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
     isLoading = !isLoading;
   }
 
+  @observable
+  // late Interpreter interpreter;
+
   loadModel() async {
+    // interpreter = await Interpreter.fromAsset(
+    //   'model/model.tflite',
+    // );
     //this function loads our model
-    await Tflite.loadModel(
-        model: 'assets/model/model.tflite', labels: 'assets/model/labels.txt');
+    // await Tflite.loadModel(
+    //     model: 'assets/model/model.tflite', labels: 'assets/model/labels.txt');
   }
 
-  @observable
-  ObservableList? output = ObservableList.of([]);
+  // @observable
+  // ObservableList? output = ObservableList.of([]);
+
+  late Object output;
 
   classifyImage(String path) async {
     inspect(path);
     //this function runs the model on the image
-    final result = await Tflite.runModelOnImage(
-      path: path,
-      numResults: 137, //the amout of categories our neural network can predict
-      threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5,
-      asynch: true,
-    );
+    // final result = await Tflite.runModelOnImage(
+    //   path: path,
+    //   numResults: 137, //the amout of categories our neural network can predict
+    //   threshold: 0.5,
+    //   imageMean: 127.5,
+    //   imageStd: 127.5,
+    //   asynch: true,
+    // );
 
-    output = ObservableList.of(result!);
+    // output = ObservableList.of(result!);
+
+    // interpreter.run(path, output);
 
     inspect(output);
   }
