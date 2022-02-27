@@ -12,6 +12,7 @@ class SVGImageConstants {
   final trending_down = 'trending-down'.toSVG;
   final flash = 'flash'.toSVG;
   final salad = 'salad'.toSVG;
+  final gift = 'gift'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {
