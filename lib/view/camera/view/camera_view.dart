@@ -203,12 +203,21 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
                                         );
                                         break;
                                       case FlashMode.always:
-                                        setState(() {
-                                          _currentFlashMode = FlashMode.torch;
-                                        });
-                                        await controller!.setFlashMode(
-                                          FlashMode.torch,
-                                        );
+                                        if (!_isRearCameraSelected) {
+                                          setState(() {
+                                            _currentFlashMode = FlashMode.torch;
+                                          });
+                                          await controller!.setFlashMode(
+                                            FlashMode.torch,
+                                          );
+                                        } else {
+                                          setState(() {
+                                            _currentFlashMode = FlashMode.off;
+                                          });
+                                          await controller!.setFlashMode(
+                                            FlashMode.off,
+                                          );
+                                        }
                                         break;
                                       case FlashMode.torch:
                                         setState(() {

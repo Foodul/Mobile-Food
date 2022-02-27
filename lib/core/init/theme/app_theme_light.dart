@@ -119,7 +119,7 @@ class AppThemeLight extends AppTheme {
             color: _appColorScheme.onTertiaryContainer,
           ),
           headline5: TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
             color: _appColorScheme.onTertiaryContainer,
           ),
