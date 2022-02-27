@@ -47,7 +47,6 @@ abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
   ObservableList? output = ObservableList.of([]);
 
   classifyImage(String path) async {
-    inspect(path);
     //this function runs the model on the image
     final result = await Tflite.runModelOnImage(
       path: path,
@@ -61,5 +60,31 @@ abstract class _FoodDetailViewModelBase with Store, BaseViewModel {
     output = ObservableList.of(result!);
 
     inspect(output);
+    if (output!.isNotEmpty) {
+      print(output![0]);
+    }
   }
+
+  @observable
+  late String typeValue = type[0];
+
+  @observable
+  List type = ['Gram', 'Kilogram', 'Porsion'];
+
+  setMapListDropdownMenuItem(List listItem) => listItem
+      .map<DropdownMenuItem<String>>(
+        (item) => DropdownMenuItem<String>(
+          value: item,
+          child: Text(item),
+        ),
+      )
+      .toList();
+
+  @computed
+  get getTypeDropdown => setMapListDropdownMenuItem(
+        type.toList(),
+      );
+
+  @action
+  void setWorkFlowTextValue(value) => typeValue = value;
 }

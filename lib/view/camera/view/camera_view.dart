@@ -167,70 +167,79 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
                             Row(
                               children: [
                                 CustomIconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _isCameraInitialized = false;
-                                    });
-                                    onNewCameraSelected(
-                                      cameras[_isRearCameraSelected ? 0 : 1],
-                                    );
-                                    setState(() {
-                                      _isRearCameraSelected =
-                                          !_isRearCameraSelected;
-                                    });
-                                  },
+                                  onPressed: _isCameraInitialized
+                                      ? () {
+                                          onNewCameraSelected(
+                                            cameras[
+                                                _isRearCameraSelected ? 0 : 1],
+                                          );
+                                          setState(() {
+                                            _isRearCameraSelected =
+                                                !_isRearCameraSelected;
+                                          });
+                                        }
+                                      : () {},
                                   iconAsset: SVGImageConstants.instance.flip,
                                   padding: context.normalValue,
                                   backgroundColor: Colors.white38,
                                 ),
+                                SizedBox(width: context.lowValue),
                                 CustomIconButton(
-                                  onPressed: () async {
-                                    switch (_currentFlashMode) {
-                                      case FlashMode.off:
-                                        setState(() {
-                                          _currentFlashMode = FlashMode.auto;
-                                        });
-                                        await controller!.setFlashMode(
-                                          FlashMode.auto,
-                                        );
-                                        break;
-                                      case FlashMode.auto:
-                                        setState(() {
-                                          _currentFlashMode = FlashMode.always;
-                                        });
-                                        await controller!.setFlashMode(
-                                          FlashMode.always,
-                                        );
-                                        break;
-                                      case FlashMode.always:
-                                        if (!_isRearCameraSelected) {
-                                          setState(() {
-                                            _currentFlashMode = FlashMode.torch;
-                                          });
-                                          await controller!.setFlashMode(
-                                            FlashMode.torch,
-                                          );
-                                        } else {
-                                          setState(() {
-                                            _currentFlashMode = FlashMode.off;
-                                          });
-                                          await controller!.setFlashMode(
-                                            FlashMode.off,
-                                          );
+                                  onPressed: _isCameraInitialized
+                                      ? () async {
+                                          switch (_currentFlashMode) {
+                                            case FlashMode.off:
+                                              setState(() {
+                                                _currentFlashMode =
+                                                    FlashMode.auto;
+                                              });
+                                              await controller!.setFlashMode(
+                                                FlashMode.auto,
+                                              );
+                                              break;
+                                            case FlashMode.auto:
+                                              setState(() {
+                                                _currentFlashMode =
+                                                    FlashMode.always;
+                                              });
+                                              await controller!.setFlashMode(
+                                                FlashMode.always,
+                                              );
+                                              break;
+                                            case FlashMode.always:
+                                              if (!_isRearCameraSelected) {
+                                                setState(() {
+                                                  _currentFlashMode =
+                                                      FlashMode.torch;
+                                                });
+                                                await controller!.setFlashMode(
+                                                  FlashMode.torch,
+                                                );
+                                              } else {
+                                                setState(() {
+                                                  _currentFlashMode =
+                                                      FlashMode.off;
+                                                });
+                                                await controller!.setFlashMode(
+                                                  FlashMode.off,
+                                                );
+                                              }
+                                              break;
+                                            case FlashMode.torch:
+                                              setState(() {
+                                                _currentFlashMode =
+                                                    FlashMode.off;
+                                              });
+                                              await controller!.setFlashMode(
+                                                FlashMode.off,
+                                              );
+                                              break;
+                                            default:
+                                              throw Exception(
+                                                  'No statu found!');
+                                          }
                                         }
-                                        break;
-                                      case FlashMode.torch:
-                                        setState(() {
-                                          _currentFlashMode = FlashMode.off;
-                                        });
-                                        await controller!.setFlashMode(
-                                          FlashMode.off,
-                                        );
-                                        break;
-                                      default:
-                                        throw Exception('No statu found!');
-                                    }
-                                  },
+                                      : () {},
                                   iconAsset: _currentFlashMode.icon,
                                   padding: context.normalValue,
                                   backgroundColor: Colors.white38,
@@ -250,11 +259,12 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
                             CustomIconButton(
                               onPressed: () async {
                                 try {
-                                  fileResult = (await filePicker
+                                  fileResult = await filePicker
                                       .FilePicker.platform
                                       .pickFiles(
-                                          allowMultiple: false,
-                                          type: filePicker.FileType.media));
+                                    allowMultiple: false,
+                                    type: filePicker.FileType.media,
+                                  );
                                   if (fileResult != null) {
                                     setState(() {
                                       _imagePath = fileResult!.paths[0]!;
@@ -284,23 +294,26 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
                     child: Column(
                       children: [
                         InkWell(
-                          onTap: () async {
-                            XFile? rawImage = await takePicture();
-                            File imageFile = File(rawImage!.path);
+                          onTap: _isCameraInitialized
+                              ? () async {
+                                  XFile? rawImage = await takePicture();
+                                  File imageFile = File(rawImage!.path);
 
-                            int currentUnix =
-                                DateTime.now().millisecondsSinceEpoch;
-                            final directory =
-                                await getApplicationDocumentsDirectory();
-                            String fileFormat = imageFile.path.split('.').last;
+                                  int currentUnix =
+                                      DateTime.now().millisecondsSinceEpoch;
+                                  final directory =
+                                      await getApplicationDocumentsDirectory();
+                                  String fileFormat =
+                                      imageFile.path.split('.').last;
 
-                            await imageFile.copy(
-                              '${directory.path}/$currentUnix.$fileFormat',
-                            );
-                            setState(() {
-                              _imagePath = imageFile.path;
-                            });
-                          },
+                                  await imageFile.copy(
+                                    '${directory.path}/$currentUnix.$fileFormat',
+                                  );
+                                  setState(() {
+                                    _imagePath = imageFile.path;
+                                  });
+                                }
+                              : () {},
                           child: Stack(
                             alignment: Alignment.center,
                             children: [

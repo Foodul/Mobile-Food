@@ -25,6 +25,7 @@ class CustomIconButton extends StatelessWidget {
     return SizedBox(
       width: context.dynamicWidth(0.15),
       child: MaterialButton(
+        elevation: 0,
         color: backgroundColor,
         onPressed: onPressed,
         child: SvgPicture.asset(

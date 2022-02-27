@@ -18,6 +18,8 @@ class SVGImageConstants {
   final gallery = 'gallery'.toSVG;
   final circle = 'circle'.toSVG;
   final send = 'send'.toSVG;
+  final star = 'star'.toSVG;
+  final calori = 'calori'.toSVG;
 }
 
 extension SVGImageConstantsExtension on String {
