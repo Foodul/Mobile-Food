@@ -18,6 +18,7 @@ class ImageConstants {
   final splashBG = 'splashBG'.toPNG;
   final banana = 'banana'.toPNG;
   final profil = 'profil'.toPNG;
+  final profilIcon = 'profil_icon'.toPNG;
 }
 
 extension ImageConstantsExtension on String {

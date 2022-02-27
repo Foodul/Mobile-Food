@@ -24,12 +24,25 @@ class ProfileView extends StatelessWidget {
         },
         onPageBuilder: (BuildContext context, ProfilViewModel viewModel) =>
             Scaffold(
+              // appBar: AppBar(
+              //   toolbarHeight: AppBar().preferredSize.height,
+              //   elevation: 0,
+              //   backgroundColor: Colors.transparent,
+              //   title: const Text('Profil'),
+              //   actions: [
+              //     IconButton(
+              //       onPressed: () {},
+              //       icon: Icon(Icons.more_vert),
+              //       color: context.colorScheme.tertiaryContainer,
+              //     )
+              //   ],
+              // ),
               body: SingleChildScrollView(
                 physics: const ClampingScrollPhysics(),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    header_area(context),
+                    header_area(context, viewModel),
                     SizedBox(
                       width: context.width,
                       height: context.dynamicWidth(0.25),
@@ -206,7 +219,7 @@ class ProfileView extends StatelessWidget {
                     Text(
                       'LV. ${(4 * total - index) - index * 2}',
                       style: context.textTheme.bodyText2!.copyWith(
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                           color: context.colorScheme.tertiary),
                     ),
@@ -256,7 +269,7 @@ class ProfileView extends StatelessWidget {
     );
   }
 
-  Container header_area(BuildContext context) {
+  Container header_area(BuildContext context, ProfilViewModel viewModel) {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -272,11 +285,22 @@ class ProfileView extends StatelessWidget {
             backgroundColor: Colors.transparent,
             title: const Text('Profil'),
             actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.more_vert),
-                color: context.colorScheme.tertiaryContainer,
-              )
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: Icon(Icons.more_vert),
+              //   color: context.colorScheme.tertiaryContainer,
+              // )
+              PopupMenuButton<int>(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: context.colorScheme.tertiaryContainer,
+                ),
+                onSelected: (item) => viewModel.popupMenu(item),
+                itemBuilder: (context) => [
+                  PopupMenuItem<int>(value: 0, child: Text('Logout')),
+                  PopupMenuItem<int>(value: 1, child: Text('Settings')),
+                ],
+              ),
             ],
           ),
           Padding(

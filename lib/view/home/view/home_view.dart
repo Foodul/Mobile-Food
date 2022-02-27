@@ -64,9 +64,9 @@ class HomeView extends StatelessWidget {
                                 SVGImageConstants.instance.trending_down)
                           ],
                         ),
-                        SizedBox(
-                          height: context.width * 0.05,
-                        ),
+                        // SizedBox(
+                        //   height: context.width * 0.05,
+                        // ),
                         // Container(
                         //   decoration: BoxDecoration(
                         //       color: context.colorScheme.background,
@@ -83,9 +83,10 @@ class HomeView extends StatelessWidget {
                   child: Container(
                     width: context.width,
                     decoration: BoxDecoration(
-                      color: context.colorScheme.background,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+                        color: context.colorScheme.background,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -352,9 +353,10 @@ class HomeView extends StatelessWidget {
                               ),
                               SizedBox(
                                 width: context.width,
-                                height: context.height * 0.35,
+                                height: context.height * 0.25,
                                 child: viewModel.data
                                     ? ListView.builder(
+                                        shrinkWrap: true,
                                         padding: EdgeInsets.zero,
                                         itemCount: viewModel.feedData.length,
                                         itemBuilder: (context, index) {

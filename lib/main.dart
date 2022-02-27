@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:foodul/view/bottomtab/view/bottom_tab_view.dart';
 import 'package:foodul/view/categories/view/categories_view.dart';
 import 'package:foodul/view/home/view/home_view.dart';
 import 'package:foodul/view/login/view/login_view.dart';
@@ -39,7 +40,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const ProfileView(),
       debugShowCheckedModeBanner: false,
       theme: context.watch<ThemeNotifier>().currentTheme,
       localizationsDelegates: context.localizationDelegates,
