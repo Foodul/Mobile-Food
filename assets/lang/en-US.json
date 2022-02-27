@@ -15,6 +15,11 @@
         "thisWeek": "This week"
 
     },
+    "CategoriesView": {
+    "find": "Find",
+    "findFood": "Find Food",
+    "categories": "Categories"
+    },
     "Onboard": {
         "title": "",
         "subtitle": ""

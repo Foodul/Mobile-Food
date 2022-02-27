@@ -19,6 +19,12 @@
         "title": "",
         "subtitle": ""
     },
+    "CategoriesView": {
+        "find": "Arama",
+        "findFood": "Gıda Ara",
+        "categories": "Kategoriler"
+        
+    },
     "Login": {
         "forgotPassword": "Şifremi unuttum ?",
         "signIn": "Giriş Yap",

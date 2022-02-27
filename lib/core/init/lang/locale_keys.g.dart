@@ -19,6 +19,10 @@ abstract class  LocaleKeys {
   static const Onboard_title = 'Onboard.title';
   static const Onboard_subtitle = 'Onboard.subtitle';
   static const Onboard = 'Onboard';
+  static const CategoriesView_find = 'CategoriesView.find';
+  static const CategoriesView_findFood = 'CategoriesView.findFood';
+  static const CategoriesView_categories = 'CategoriesView.categories';
+  static const CategoriesView = 'CategoriesView';
   static const Login_forgotPassword = 'Login.forgotPassword';
   static const Login_signIn = 'Login.signIn';
   static const Login_pleaseProvideEmail = 'Login.pleaseProvideEmail';
