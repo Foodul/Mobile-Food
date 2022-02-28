@@ -112,7 +112,8 @@ class _FoodDetailViewState extends State<FoodDetailView> {
                         color: Color(0xFFE2E6EC),
                       ),
                       Observer(
-                        builder: (_) => viewModel.label.isEmpty
+                        builder: (_) => (viewModel.label.isEmpty &&
+                                widget.navModel!.name == null)
                             ? Center(
                                 child: Container(
                                   child: Text(

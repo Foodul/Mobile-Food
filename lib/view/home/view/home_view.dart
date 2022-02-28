@@ -94,7 +94,7 @@ class HomeView extends StatelessWidget {
                         children: [
                           Container(
                             width: context.width,
-                            padding: context.paddingLow * 2,
+                            padding: context.paddingLow * 1.5,
                             height: context.width * 0.6,
                             decoration: BoxDecoration(
                                 boxShadow: [
@@ -287,7 +287,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(
                               width: context.width,
-                              height: context.height * 0.11,
+                              height: context.height * 0.1,
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   shrinkWrap: true,

@@ -21,6 +21,9 @@ abstract class _LoginViewModelBase with Store, BaseViewModel {
   void init() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
+
+    emailController!.text = 'test@test.com';
+    passwordController!.text = 'test123';
     // FirebaseApp.configure();
     auth = FirebaseAuth.instance;
   }
